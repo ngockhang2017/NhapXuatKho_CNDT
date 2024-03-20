@@ -48,30 +48,30 @@
        <item>
         <widget class="QWidget" name="widget_4" native="true">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(25, 21, 84);</string>
+          <string notr="true"/>
          </property>
-         <widget class="QLabel" name="label_5">
-          <property name="geometry">
-           <rect>
-            <x>100</x>
-            <y>30</y>
-            <width>81</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>LOGO</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="2,3">
+          <item>
+           <spacer name="horizontalSpacer_20">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>131</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QWidget" name="widget_13" native="true">
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/images/images/images-removebg-preview.png);</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
@@ -80,6 +80,9 @@
           <string notr="true"/>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="rightMargin">
+           <number>200</number>
+          </property>
           <item>
            <widget class="QLabel" name="label">
             <property name="font">
@@ -219,6 +222,19 @@
              <item row="0" column="4">
               <widget class="QLineEdit" name="lineEdit_DV"/>
              </item>
+             <item row="2" column="2">
+              <spacer name="horizontalSpacer_11">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
              <item row="1" column="3">
               <widget class="QLabel" name="label_13">
                <property name="text">
@@ -228,20 +244,6 @@
              </item>
              <item row="1" column="1">
               <widget class="QLineEdit" name="lineEdit_TenLK"/>
-             </item>
-             <item row="2" column="3">
-              <widget class="QLabel" name="label_15">
-               <property name="text">
-                <string>Ghi chú:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_11">
-               <property name="text">
-                <string>Loại linh kiện:</string>
-               </property>
-              </widget>
              </item>
              <item row="0" column="2">
               <spacer name="horizontalSpacer_9">
@@ -256,31 +258,12 @@
                </property>
               </spacer>
              </item>
-             <item row="1" column="2">
-              <spacer name="horizontalSpacer_10">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+             <item row="2" column="3">
+              <widget class="QLabel" name="label_15">
+               <property name="text">
+                <string>Ghi chú:</string>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="2" column="2">
-              <spacer name="horizontalSpacer_11">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
+              </widget>
              </item>
              <item row="0" column="1">
               <widget class="QComboBox" name="comboBox_loaiLK">
@@ -310,6 +293,39 @@
                 </property>
                </item>
               </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_11">
+               <property name="text">
+                <string>Loại linh kiện:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <spacer name="horizontalSpacer_10">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="5">
+              <spacer name="horizontalSpacer_17">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>30</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </item>
@@ -702,8 +718,44 @@
              </font>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
              <item>
               <widget class="QLabel" name="label_4">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>TRỞ:   </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_2">
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>30</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -711,22 +763,17 @@
                  <bold>false</bold>
                 </font>
                </property>
-               <property name="text">
-                <string>TRỞ</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_2">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/images/images/res_image.jpg);</string>
                </property>
                <property name="text">
-                <string>trở</string>
+                <string/>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>16</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -748,19 +795,29 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
-                 <weight>50</weight>
-                 <bold>false</bold>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="text">
-                <string>TỤ</string>
+                <string>TỤ:   </string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_3">
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/images/images/cap.png);</string>
+               </property>
                <property name="text">
-                <string>tụ</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -782,19 +839,29 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
-                 <weight>50</weight>
-                 <bold>false</bold>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="text">
-                <string>IC</string>
+                <string>IC:   </string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_4">
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/images/images/ic.png);</string>
+               </property>
                <property name="text">
-                <string>ic</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -816,19 +883,29 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
-                 <weight>50</weight>
-                 <bold>false</bold>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="text">
-                <string>JACK</string>
+                <string>JACK:   </string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_5">
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/images/images/jack.png);</string>
+               </property>
                <property name="text">
-                <string>jack</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -850,24 +927,60 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
-                 <weight>50</weight>
-                 <bold>false</bold>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="text">
-                <string>KHÁC</string>
+                <string>KHÁC:   </string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_6">
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/images/images/different.png);</string>
+               </property>
                <property name="text">
-                <string>khác</string>
+                <string/>
                </property>
               </widget>
              </item>
              <item>
               <spacer name="horizontalSpacer_12">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_19">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_18">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>

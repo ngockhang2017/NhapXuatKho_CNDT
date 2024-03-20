@@ -39,32 +39,32 @@ void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE
         query.exec();
         while(query.next())
         {
-            ui->lineEdit_TenLK->setText(query.value(1).toString());
-            ui->lineEdit_MaLK->setText(query.value(2).toString()); //set datetime
-            ui->lineEdit_DV->setText(query.value(3).toString());
-            ui->lineEdit_SoLuong->setText(query.value(4).toString());
-            QString loaiLK = query.value(5).toString();
+            ui->lineEdit_TenLK->setText(query.value(0).toString());
+            ui->lineEdit_MaLK->setText(query.value(1).toString()); //set datetime
+            ui->lineEdit_DV->setText(query.value(2).toString());
+            ui->lineEdit_SoLuong->setText(query.value(3).toString());
+            QString loaiLK = query.value(4).toString();
             if(loaiLK != "RES" && loaiLK != "CAP" &&loaiLK != "JACK" &&loaiLK != "IC")
-               ui->comboBox_loaiLK->setCurrentText("Khac");
+                ui->comboBox_loaiLK->setCurrentText("Khác");
             else
                 ui->comboBox_loaiLK->setCurrentText(loaiLK);
 
-            ui->lineEdit_ghichu->setText(query.value(6).toString());
+            ui->lineEdit_ghichu->setText(query.value(5).toString());
         }
         //setDisabled all line edit
         foreach(QLineEdit* le, findChildren<QLineEdit*>())
         {
             if(le != ui->lineEdit_timkiem)
             {
-            le->setDisabled(true);
+                le->setDisabled(true);
             }
         }
 
-//        ui->pushButton->setDisabled(false);
-//        ui->pushButton_2->setDisabled(true); //ẩn nút lưu thông tin
-//        ui->pushButton_3->setDisabled(false);
-//        ui->pushButton_4->setDisabled(true); //ẩn nút cập nhật
-//        ui->pushButton_5->setDisabled(false);
+        //        ui->pushButton->setDisabled(false);
+        //        ui->pushButton_2->setDisabled(true); //ẩn nút lưu thông tin
+        //        ui->pushButton_3->setDisabled(false);
+        //        ui->pushButton_4->setDisabled(true); //ẩn nút cập nhật
+        //        ui->pushButton_5->setDisabled(false);
 
         this->db.close();
     }
