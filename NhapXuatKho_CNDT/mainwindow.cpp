@@ -12,6 +12,12 @@ MainWindow::MainWindow(QWidget *parent)
     SelectAll();
 
     connect(ui->tableWidget, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(SectionDoubleClick(int, int)));
+    ui->tableWidget->setColumnWidth(0, 450);
+    ui->tableWidget->setColumnWidth(1, 400);
+    ui->tableWidget->setColumnWidth(2, 150);
+    ui->tableWidget->setColumnWidth(3, 150);
+    ui->tableWidget->setColumnWidth(4, 150);
+    ui->tableWidget->setColumnWidth(5, 150);
 
 }
 
@@ -180,26 +186,31 @@ void MainWindow::SelectAll()
 
 void MainWindow::on_pushButton_2_clicked()//trở
 {
+    ui->tableWidget->clear();
     Seclect("RES");
 }
 
 void MainWindow::on_pushButton_3_clicked()//tụ
 {
+    ui->tableWidget->clear();
     Seclect("CAP");
 }
 
 void MainWindow::on_pushButton_4_clicked()//ic
 {
+    ui->tableWidget->clear();
     Seclect("IC");
 }
 
 void MainWindow::on_pushButton_5_clicked()//jack
 {
+    ui->tableWidget->clear();
     Seclect("JACK");
 }
 
 void MainWindow::on_pushButton_6_clicked()//khác
 {
+    ui->tableWidget->clear();
     UpdateConnection();
 
     if(this->DatabaseConnected)
