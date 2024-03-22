@@ -42,6 +42,16 @@ private slots:
 
     void SectionDoubleClick(int row, int column);
 
+    void on_pushButton_14_clicked();
+
+    void on_pushButton_17_clicked();
+
+    void on_pushButton_20_clicked();
+
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_12_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

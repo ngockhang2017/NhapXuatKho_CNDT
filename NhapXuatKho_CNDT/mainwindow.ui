@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1265</width>
-    <height>993</height>
+    <width>1146</width>
+    <height>721</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -340,13 +340,6 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_11">
-                <property name="text">
-                 <string>Hủy xuất kho</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <spacer name="horizontalSpacer_8">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
@@ -362,7 +355,14 @@
               <item>
                <widget class="QPushButton" name="pushButton_12">
                 <property name="text">
-                 <string>Thêm linh kiện này</string>
+                 <string>Bắt đầu thêm mới</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_11">
+                <property name="text">
+                 <string>Lưu</string>
                 </property>
                </widget>
               </item>
@@ -397,6 +397,13 @@
                <widget class="QPushButton" name="pushButton_17">
                 <property name="text">
                  <string>Cập nhật linh kiện</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_20">
+                <property name="text">
+                 <string>Hủy sửa linh kiện</string>
                 </property>
                </widget>
               </item>
@@ -1321,8 +1328,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1265</width>
-     <height>25</height>
+     <width>1146</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>

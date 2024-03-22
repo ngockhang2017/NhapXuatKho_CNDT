@@ -66,11 +66,13 @@ void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE
             }
         }
 
-        //        ui->pushButton->setDisabled(false);
-        //        ui->pushButton_2->setDisabled(true); //ẩn nút lưu thông tin
-        //        ui->pushButton_3->setDisabled(false);
-        //        ui->pushButton_4->setDisabled(true); //ẩn nút cập nhật
-        //        ui->pushButton_5->setDisabled(false);
+        ui->pushButton_10->setDisabled(false); //thêm vào giỏ
+        ui->pushButton_11->setDisabled(true); //lưu
+        ui->pushButton_12->setDisabled(true); //bắt đầu thêm
+        ui->pushButton_13->setDisabled(false); //xóa lk này
+        ui->pushButton_14->setDisabled(false);  //sửa lk này
+        ui->pushButton_17->setDisabled(true);//cập nhật
+        ui->pushButton_20->setDisabled(true); //hủy sửa
 
         this->db.close();
     }
@@ -252,6 +254,145 @@ void MainWindow::on_pushButton_6_clicked()//khác
             ui->tableWidget->setItem(rowcount, 5, GhiChu);
 
             rowcount++;
+        }
+    }
+}
+
+void MainWindow::on_pushButton_14_clicked()//bắt đầu sửa thông tin linh kiện
+{
+    //setDisabled all line edit
+    foreach(QLineEdit* le, findChildren<QLineEdit*>())
+    {
+        le->setDisabled(false);
+    }
+
+    ui->pushButton_10->setDisabled(true); //thêm vào giỏ
+    ui->pushButton_11->setDisabled(true); //lưu
+    ui->pushButton_12->setDisabled(true); //bắt đầu thêm
+    ui->pushButton_13->setDisabled(true); //xóa lk này
+    ui->pushButton_14->setDisabled(true);  //bắt đầu sửa
+    ui->pushButton_17->setDisabled(false);//cập nhật
+    ui->pushButton_20->setDisabled(false); //hủy sửa
+}
+
+void MainWindow::on_pushButton_17_clicked()  //Cập nhật linh kiện
+{
+
+    QString LoaiLK = ui->comboBox_loaiLK->currentText();
+    QString TenLK = ui->lineEdit_TenLK->text();
+    QString MaLK = ui->lineEdit_MaLK->text();
+    QString DVTinh = ui->lineEdit_DV->text();
+    QString SLTonKho = ui->lineEdit_SoLuong->text();
+    QString GhiChu = ui->lineEdit_ghichu->text();
+
+    this->UpdateConnection();
+    if(this->DatabaseConnected)
+    {
+        QSqlQuery qry(this->db);
+        qry.prepare("UPDATE LinhKien SET TenLK=:TenLK, DonVi=:DonVi, SoLuongConLai=:SoLuongConLai, LoaiLK=:LoaiLK, "
+                    "GhiChu=:GhiChu WHERE MaLK=:MaLK");
+
+        //  qry.bindValue(":id", 50);
+        qry.bindValue(":TenLK", TenLK);
+        qry.bindValue(":MaLK", MaLK);
+        qry.bindValue(":DonVi", DVTinh);
+        qry.bindValue(":SoLuongConLai", SLTonKho);
+        qry.bindValue(":LoaiLK", LoaiLK);
+        qry.bindValue(":GhiChu", GhiChu);
+
+        if(qry.exec())
+        {
+            QMessageBox::information(this, "Thông báo", "Cập nhật thông tin linh kiện thành công!");
+            foreach(QLineEdit* le, findChildren<QLineEdit*>())
+            {
+                le->setDisabled(true);
+            }
+
+            //            foreach(QTextEdit* le, findChildren<QTextEdit*>())
+            //            {
+            //                le->clear();
+            //            }
+            ui->pushButton_10->setDisabled(false); //thêm vào giỏ
+            ui->pushButton_11->setDisabled(true); //lưu
+            ui->pushButton_12->setDisabled(false); //bắt đầu thêm
+            ui->pushButton_13->setDisabled(false); //xóa lk này
+            ui->pushButton_14->setDisabled(false);  //sửa lk này
+            ui->pushButton_17->setDisabled(true);//cập nhật
+            ui->pushButton_20->setDisabled(true); //hủy sửa
+        }
+        else
+        {
+            QMessageBox::warning(this, "Thông báo", "Cập nhật thông tin không thành công. Xin hãy thử lại!");
+        }
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
+    }
+}
+
+void MainWindow::on_pushButton_20_clicked()//hủy sửa linh kiện
+{
+    foreach(QLineEdit* le, findChildren<QLineEdit*>())
+    {
+        le->clear();
+        le->setDisabled(true);
+    }
+    ui->pushButton_10->setDisabled(true); //thêm vào giỏ
+    ui->pushButton_11->setDisabled(true); //lưu
+    ui->pushButton_12->setDisabled(false); //bắt đầu thêm
+    ui->pushButton_13->setDisabled(true); //xóa lk này
+    ui->pushButton_14->setDisabled(true);  //sửa lk này
+    ui->pushButton_17->setDisabled(true);//cập nhật
+    ui->pushButton_20->setDisabled(true); //hủy sửa
+}
+
+void MainWindow::on_pushButton_13_clicked() //xóa linh kiện
+{
+    if(ui->lineEdit_MaLK->text() != "")
+    {
+        UpdateConnection();
+        if(this->DatabaseConnected)
+        {
+            QSqlQuery qry(this->db);
+            qry.prepare("DELETE FROM LinhKien WHERE MaLK=:MaLK");
+            qry.bindValue(":MaLK", ui->lineEdit_MaLK->text());
+
+            if(qry.exec())
+            {
+                this->db.close(); //đóng kết nối database cũ
+                QMessageBox::information(this, "Thông báo", "Xóa linh kiện thành công!");
+                foreach(QLineEdit* le, findChildren<QLineEdit*>())
+                {
+                    le->clear();
+                    le->setDisabled(true);
+                }
+                ui->pushButton_10->setDisabled(true); //thêm vào giỏ
+                ui->pushButton_11->setDisabled(true); //lưu
+                ui->pushButton_12->setDisabled(false); //bắt đầu thêm
+                ui->pushButton_13->setDisabled(true); //xóa lk này
+                ui->pushButton_14->setDisabled(true);  //sửa lk này
+                ui->pushButton_17->setDisabled(true);//cập nhật
+                ui->pushButton_20->setDisabled(true); //hủy sửa
+            }
+            this->db.close();
+        }
+        else
+        {
+            QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
+        }
+    }
+    else
+        QMessageBox::warning(this, "Warning", "Trường mã linh kiện đang trống!!!");
+}
+
+void MainWindow::on_pushButton_12_clicked()  //bắt đầu thêm mới linh kiện
+{
+    foreach(QLineEdit* le, findChildren<QLineEdit*>())
+    {
+        if(le != ui->lineEdit_timkiem)
+        {
+            le->clear();
         }
     }
 }
