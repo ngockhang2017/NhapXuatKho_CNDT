@@ -153,7 +153,7 @@
           </font>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -469,7 +469,14 @@
                </widget>
               </item>
               <item>
-               <widget class="QTableWidget" name="tableWidget_2"/>
+               <widget class="QTableWidget" name="tableWidget_2">
+                <property name="font">
+                 <font>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
@@ -902,6 +909,12 @@
              </item>
              <item>
               <widget class="QLineEdit" name="lineEdit_timkiem">
+               <property name="minimumSize">
+                <size>
+                 <width>500</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1329,7 +1342,7 @@
      <x>0</x>
      <y>0</y>
      <width>1146</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

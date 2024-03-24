@@ -13,17 +13,33 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->tableWidget, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(SectionDoubleClick(int, int)));
     ui->tableWidget->setColumnWidth(0, 450);
-    ui->tableWidget->setColumnWidth(1, 400);
+    ui->tableWidget->setColumnWidth(1, 200);
     ui->tableWidget->setColumnWidth(2, 150);
     ui->tableWidget->setColumnWidth(3, 150);
     ui->tableWidget->setColumnWidth(4, 150);
-    ui->tableWidget->setColumnWidth(5, 150);
+    ui->tableWidget->setColumnWidth(5, 300);
+
+    //bảng giỏ linh kiện
+    ui->tableWidget_2->setColumnCount(6);
+    QStringList list_labels;
+    list_labels << "Tên linh kiện" << "Mã linh kiện" << "Đơn vị tính"
+                << "Số lượng tồn kho" << "Loại linh kiện" << "Ghi chú";
+    ui->tableWidget_2->setHorizontalHeaderLabels(list_labels);
+
+    //Gợi ý tìm kiếm
+    QStringList wordList;
+    wordList = LoadTenLK();
+
+    QCompleter *completer = new QCompleter(wordList, ui->lineEdit_timkiem);
+    completer->setCaseSensitivity(Qt::CaseInsensitive);
+    ui->lineEdit_timkiem->setCompleter(completer);
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE CLICK VÀ ĐIỀN DỮ LIỆU VÀ CÁC LINE EDIT
@@ -32,7 +48,7 @@ void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE
     //========LẤY ID
     QString ID = ui->tableWidget->item(row, column)->text();
     qDebug()<<"ID DUOC CLICK LA: " << ID << endl;
-    this->ID_DoubleCLick = ID.toInt();
+    this->ID_DoubleCLick = ID;
 
     UpdateConnection();
     if(this->DatabaseConnected)
@@ -68,11 +84,16 @@ void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE
 
         ui->pushButton_10->setDisabled(false); //thêm vào giỏ
         ui->pushButton_11->setDisabled(true); //lưu
-        ui->pushButton_12->setDisabled(true); //bắt đầu thêm
+        ui->pushButton_12->setDisabled(false); //bắt đầu thêm
         ui->pushButton_13->setDisabled(false); //xóa lk này
         ui->pushButton_14->setDisabled(false);  //sửa lk này
         ui->pushButton_17->setDisabled(true);//cập nhật
         ui->pushButton_20->setDisabled(true); //hủy sửa
+
+        ui->tab->show();
+        ui->tab_2->close();
+        ui->tab_3->close();
+        ui->tab_4->close();
 
         this->db.close();
     }
@@ -393,6 +414,163 @@ void MainWindow::on_pushButton_12_clicked()  //bắt đầu thêm mới linh ki�
         if(le != ui->lineEdit_timkiem)
         {
             le->clear();
+        }
+    }
+
+}
+
+void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
+{
+    int row = ui->tableWidget_2->rowCount();
+    ui->tableWidget_2->insertRow(row);
+
+    QTableWidgetItem *TenLK1 = new QTableWidgetItem;
+    QTableWidgetItem * MaLK1 = new QTableWidgetItem;
+    QTableWidgetItem *DVTinh1 = new QTableWidgetItem;
+    QTableWidgetItem *SLTonKho1 = new QTableWidgetItem;
+    QTableWidgetItem *LoaiLK1 = new QTableWidgetItem;
+    QTableWidgetItem *GhiChu1 = new QTableWidgetItem;
+
+    TenLK1->setText(ui->lineEdit_TenLK->text());
+    MaLK1->setText(ui->lineEdit_MaLK->text());
+    DVTinh1->setText(ui->lineEdit_DV->text());
+    SLTonKho1->setText(ui->lineEdit_SoLuong->text());
+    LoaiLK1->setText(ui->comboBox_loaiLK->currentText());
+    GhiChu1->setText(ui->lineEdit_ghichu->text());
+
+    ui->tableWidget_2->setItem(row, 0, TenLK1);
+    ui->tableWidget_2->setItem(row, 1, MaLK1);
+    ui->tableWidget_2->setItem(row, 2, DVTinh1);
+    ui->tableWidget_2->setItem(row, 3, SLTonKho1);
+    ui->tableWidget_2->setItem(row, 4, LoaiLK1);
+    ui->tableWidget_2->setItem(row, 5, GhiChu1);
+}
+
+void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
+{
+    QString LoaiLK = ui->comboBox_loaiLK->currentText();
+    QString TenLK = ui->lineEdit_TenLK->text();
+    QString MaLK = ui->lineEdit_MaLK->text();
+    QString DVTinh = ui->lineEdit_DV->text();
+    QString SLTonKho = ui->lineEdit_SoLuong->text();
+    QString GhiChu = ui->lineEdit_ghichu->text();
+
+    this->UpdateConnection();
+    if(this->DatabaseConnected)
+    {
+        QSqlQuery qry(this->db);
+        qry.prepare("INSERT INTO LinhKien ( TenLK, MaLK, DonVi, SoLuongConLai, LoaiLK, "
+                    "GhiChu) "
+                    "VALUES (:TenLK, :MaLK, :DonVi, :SoLuongConLai, :LoaiLK,"
+                    ":GhiChu)");
+
+        qry.bindValue(":TenLK", TenLK);
+        qry.bindValue(":MaLK", MaLK);
+        qry.bindValue(":DonVi", DVTinh);
+        qry.bindValue(":SoLuongConLai", SLTonKho);
+        qry.bindValue(":LoaiLK", LoaiLK);
+        qry.bindValue(":GhiChu", GhiChu);
+
+        if(qry.exec())
+        {
+            QMessageBox::information(this, "Thông báo", "Cập nhật thông tin linh kiện thành công!");
+            foreach(QLineEdit* le, findChildren<QLineEdit*>())
+            {
+                le->setDisabled(true);
+            }
+
+            //            foreach(QTextEdit* le, findChildren<QTextEdit*>())
+            //            {
+            //                le->clear();
+            //            }
+            ui->pushButton_10->setDisabled(false); //thêm vào giỏ
+            ui->pushButton_11->setDisabled(true); //lưu
+            ui->pushButton_12->setDisabled(false); //bắt đầu thêm
+            ui->pushButton_13->setDisabled(false); //xóa lk này
+            ui->pushButton_14->setDisabled(false);  //sửa lk này
+            ui->pushButton_17->setDisabled(true);//cập nhật
+            ui->pushButton_20->setDisabled(true); //hủy sửa
+        }
+        else
+        {
+            QMessageBox::warning(this, "Thông báo", "Cập nhật thông tin không thành công. Xin hãy thử lại!");
+        }
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
+    }
+}
+
+QList<QString> MainWindow::LoadTenLK()
+{
+    QList<QString> result;
+    QSqlQuery query(db);
+    query.prepare("SELECT TenLK FROM LinhKien");
+    if (query.exec()) {
+        qDebug() << "du lieu da exec!!!!";
+        while (query.next()) {
+            QString tenMay = query.value("TenLK").toString();
+            result.append(tenMay);
+        }
+    }
+
+    // Đóng kết nối
+    db.close();
+    return result;
+}
+
+void MainWindow::on_lineEdit_timkiem_editingFinished()
+{
+    on_pushButton_clicked();
+}
+
+void MainWindow::on_pushButton_clicked()//tìm kiếm
+{
+    QString TenLK = ui->lineEdit_timkiem->text();
+    UpdateConnection();
+
+    if(this->DatabaseConnected)
+    {
+        ui->tableWidget->clear();
+
+        QSqlQuery query(db);
+        query.prepare("select * from LinhKien where TenLK == '"+TenLK +"'");
+        query.exec();
+
+        ui->tableWidget->setColumnCount(6);
+        QStringList list_labels;
+        list_labels << "Tên linh kiện" << "Mã linh kiện" << "Đơn vị tính"
+                    << "Số lượng tồn kho" << "Loại linh kiện" << "Ghi chú";
+        ui->tableWidget->setHorizontalHeaderLabels(list_labels);
+
+        int rowcount = 0;
+        while(query.next())
+        {
+            ui->tableWidget->insertRow(rowcount);
+            QTableWidgetItem *TenLK = new QTableWidgetItem;
+            QTableWidgetItem * MaLK = new QTableWidgetItem;
+            QTableWidgetItem *DVTinh = new QTableWidgetItem;
+            QTableWidgetItem *SLTonKho = new QTableWidgetItem;
+            QTableWidgetItem *LoaiLK = new QTableWidgetItem;
+            QTableWidgetItem *GhiChu = new QTableWidgetItem;
+
+
+            TenLK->setText(query.value(0).toString());
+            MaLK->setText(query.value(1).toString());
+            DVTinh->setText(query.value(2).toString());
+            SLTonKho->setText(query.value(3).toString());
+            LoaiLK->setText(query.value(4).toString());
+            GhiChu->setText(query.value(5).toString());
+
+            ui->tableWidget->setItem(rowcount, 0, TenLK);
+            ui->tableWidget->setItem(rowcount, 1, MaLK);
+            ui->tableWidget->setItem(rowcount, 2, DVTinh);
+            ui->tableWidget->setItem(rowcount, 3, SLTonKho);
+            ui->tableWidget->setItem(rowcount, 4, LoaiLK);
+            ui->tableWidget->setItem(rowcount, 5, GhiChu);
+
+            rowcount++;
         }
     }
 }

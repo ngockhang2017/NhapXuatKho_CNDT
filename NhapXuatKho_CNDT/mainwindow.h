@@ -6,6 +6,7 @@
 #include<QSqlQuery>
 #include<QMessageBox>
 #include<QDebug>
+#include<QCompleter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,11 +24,12 @@ public:
     QSqlDatabase db;
     bool DatabaseConnected;
     QString path_db = "C:/Users/ngock/OneDrive/Documents/GitHub/NhapXuatKho_CNDT/quanlykho";
-    int ID_DoubleCLick;
+    QString ID_DoubleCLick;
 
     void UpdateConnection();
     void Seclect(QString LoaiLK);
     void SelectAll();
+    QList<QString> LoadTenLK();
 
 private slots:
     void on_pushButton_2_clicked();
@@ -51,6 +53,14 @@ private slots:
     void on_pushButton_13_clicked();
 
     void on_pushButton_12_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_lineEdit_timkiem_editingFinished();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
