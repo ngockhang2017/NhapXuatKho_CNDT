@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1146</width>
-    <height>721</height>
+    <width>1079</width>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -153,7 +153,7 @@
           </font>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -334,6 +334,17 @@
              <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
                <widget class="QPushButton" name="pushButton_10">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(0, 188, 0);
+color: rgb(255, 255, 255);</string>
+                </property>
                 <property name="text">
                  <string>Thêm vào giỏ</string>
                 </property>
@@ -361,6 +372,17 @@
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_11">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(0, 181, 0);
+color: rgb(255, 255, 255);</string>
+                </property>
                 <property name="text">
                  <string>Lưu</string>
                 </property>
@@ -395,6 +417,17 @@
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_17">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(0, 181, 0);
+color: rgb(255, 255, 255);</string>
+                </property>
                 <property name="text">
                  <string>Cập nhật linh kiện</string>
                 </property>
@@ -483,15 +516,15 @@
            </item>
            <item>
             <widget class="QWidget" name="widget_11" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_7">
+             <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1">
               <property name="spacing">
-               <number>0</number>
+               <number>9</number>
               </property>
               <property name="leftMargin">
                <number>0</number>
               </property>
               <property name="topMargin">
-               <number>9</number>
+               <number>0</number>
               </property>
               <property name="rightMargin">
                <number>0</number>
@@ -500,110 +533,154 @@
                <number>0</number>
               </property>
               <item>
-               <spacer name="verticalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+               <widget class="QGroupBox" name="groupBox_3">
+                <property name="font">
+                 <font>
+                  <family>Palatino Linotype</family>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
                 </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
+                <property name="title">
+                 <string>Xác nhận số lượng xuất kho</string>
                 </property>
-               </spacer>
+                <layout class="QHBoxLayout" name="horizontalLayout_13">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_2">
+                   <property name="spacing">
+                    <number>9</number>
+                   </property>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_18">
+                     <property name="text">
+                      <string>Số lượng(Enter):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLineEdit" name="lineEdit_xk_ten"/>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_17">
+                     <property name="text">
+                      <string>Tên:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_22">
+                     <property name="text">
+                      <string>Mã LK:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLineEdit" name="lineEdit_xksl"/>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QLineEdit" name="lineEdit_xk_ma"/>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
               </item>
               <item>
-               <spacer name="verticalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+               <widget class="QGroupBox" name="groupBox_4">
+                <property name="font">
+                 <font>
+                  <family>Palatino Linotype</family>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
                 </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
+                <property name="title">
+                 <string>Thông tin xuất kho</string>
                 </property>
-               </spacer>
-              </item>
-              <item>
-               <layout class="QGridLayout" name="gridLayout_2">
-                <property name="spacing">
-                 <number>9</number>
-                </property>
-                <item row="2" column="1">
-                 <widget class="QLineEdit" name="lineEdit_10"/>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QLineEdit" name="lineEdit_8"/>
-                </item>
-                <item row="5" column="1">
-                 <widget class="QDateTimeEdit" name="dateTimeEdit"/>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_18">
-                  <property name="text">
-                   <string>Mã linh kiện:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_19">
-                  <property name="text">
-                   <string>Số lượng:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="1">
-                 <widget class="QLineEdit" name="lineEdit_12"/>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_17">
-                  <property name="text">
-                   <string>Tên linh kiện:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLineEdit" name="lineEdit_9"/>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QLabel" name="label_21">
-                  <property name="text">
-                   <string>Người xuất kho:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="0">
-                 <widget class="QLabel" name="label_22">
-                  <property name="text">
-                   <string>Ngày xuất kho:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="0">
-                 <widget class="QLabel" name="label_20">
-                  <property name="text">
-                   <string>Ghi chú:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="1">
-                 <widget class="QLineEdit" name="lineEdit_11"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
+                <layout class="QHBoxLayout" name="horizontalLayout_14">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_3">
+                   <property name="spacing">
+                    <number>9</number>
+                   </property>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="lineEdit_xk_tennguoi"/>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_20">
+                     <property name="text">
+                      <string>Ghi chú:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_19">
+                     <property name="text">
+                      <string>Tên người xuất kho:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="lineEdit_xk_ghichu"/>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_21">
+                     <property name="text">
+                      <string>Ngày xuất kho:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QDateEdit" name="dateEdit_xk_ngay">
+                     <property name="dateTime">
+                      <datetime>
+                       <hour>0</hour>
+                       <minute>0</minute>
+                       <second>0</second>
+                       <year>2023</year>
+                       <month>8</month>
+                       <day>31</day>
+                      </datetime>
+                     </property>
+                     <property name="displayFormat">
+                      <string>dd/MM/yyyy</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
               </item>
               <item>
                <widget class="QWidget" name="widget_12" native="true">
@@ -623,6 +700,18 @@
                  </item>
                  <item>
                   <widget class="QPushButton" name="pushButton_15">
+                   <property name="font">
+                    <font>
+                     <family>Palatino Linotype</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 181, 0);
+color: rgb(255, 255, 255);</string>
+                   </property>
                    <property name="text">
                     <string>XUẤT</string>
                    </property>
@@ -630,8 +719,29 @@
                  </item>
                  <item>
                   <widget class="QPushButton" name="pushButton_16">
+                   <property name="font">
+                    <font>
+                     <family>Palatino Linotype</family>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>HỦY</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_21">
+                   <property name="font">
+                    <font>
+                     <family>Palatino Linotype</family>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Export</string>
                    </property>
                   </widget>
                  </item>
@@ -735,7 +845,7 @@
                  <item>
                   <widget class="QLabel" name="label_23">
                    <property name="text">
-                    <string>Chọn ngày (nhập 2 chữ số):</string>
+                    <string>Chọn ngày (ngày/tháng/năm):</string>
                    </property>
                   </widget>
                  </item>
@@ -787,7 +897,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit">
+                  <widget class="QLineEdit" name="lineEdit_timnguoi_xk">
                    <property name="font">
                     <font>
                      <family>Palatino Linotype</family>
@@ -803,6 +913,25 @@
               <item>
                <widget class="QWidget" name="widget_16" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_12">
+                 <item>
+                  <widget class="QPushButton" name="pushButton_22">
+                   <property name="font">
+                    <font>
+                     <family>Palatino Linotype</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(85, 247, 255);
+color: rgb(0, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>Lịch sử mới nhất</string>
+                   </property>
+                  </widget>
+                 </item>
                  <item>
                   <spacer name="horizontalSpacer_22">
                    <property name="orientation">
@@ -821,9 +950,14 @@
                    <property name="font">
                     <font>
                      <family>Palatino Linotype</family>
+                     <pointsize>10</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 181, 0);
+color: rgb(255, 255, 255);</string>
                    </property>
                    <property name="text">
                     <string>Xuất File</string>
@@ -930,6 +1064,11 @@
                  <weight>75</weight>
                  <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(0, 181, 0);
+color: rgb(255, 255, 255);
+</string>
                </property>
                <property name="text">
                 <string>Tìm</string>
@@ -1275,6 +1414,13 @@
                </property>
               </spacer>
              </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_23">
+               <property name="text">
+                <string>Tất cả</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -1341,7 +1487,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1146</width>
+     <width>1079</width>
      <height>25</height>
     </rect>
    </property>

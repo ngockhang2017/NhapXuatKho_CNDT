@@ -17,13 +17,16 @@ RC_ICONS = images-removebg-preview.ico
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    sl_xuatkho.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    sl_xuatkho.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    sl_xuatkho.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

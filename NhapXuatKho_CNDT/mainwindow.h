@@ -7,6 +7,14 @@
 #include<QMessageBox>
 #include<QDebug>
 #include<QCompleter>
+#include<QFileDialog>
+//#include <QXlsx/xlsxdocument.h>
+#include <QFile>
+#include <QTextStream>
+#include <QVariant>
+#include<QTableWidget>
+#include<sl_xuatkho.h>
+#include<QDateTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,6 +38,11 @@ public:
     void Seclect(QString LoaiLK);
     void SelectAll();
     QList<QString> LoadTenLK();
+    QList<QString> LoadTenNguoiXuatKho();
+    void exportToExcel(QTableWidget *tableWidget, const QString &fileName);
+    int SLhienCoCuaMotLK = 0;
+    void CapNhatSoLuongLK(QString MaLK, int SoLuongConLai);
+    void CapNhatLSXuatKho(QString TenNguoiXK, QString TenLK, QString MaLK, QString SoLuongXK, QString GhiChu, QString NgayXK);
 
 private slots:
     void on_pushButton_2_clicked();
@@ -43,6 +56,7 @@ private slots:
     void on_pushButton_6_clicked();
 
     void SectionDoubleClick(int row, int column);
+    void SectionDoubleClick_2(int row, int column);
 
     void on_pushButton_14_clicked();
 
@@ -62,7 +76,29 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_21_clicked();
+
+    void on_lineEdit_xksl_editingFinished();
+
+    void on_pushButton_15_clicked();
+
+    void on_pushButton_22_clicked();
+
+    void on_lineEdit_timnguoi_xk_editingFinished();
+
+    void on_pushButton_23_clicked();
+
+
+    void on_dateEdit_editingFinished();
+
+    void on_pushButton_19_clicked();
+
+    void on_pushButton_18_clicked();
+
 private:
     Ui::MainWindow *ui;
+    SL_XuatKho *m_SL_XuatKho;
+
+     QStringList wordList, wordList_xk;
 };
 #endif // MAINWINDOW_H
