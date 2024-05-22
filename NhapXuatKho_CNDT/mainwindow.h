@@ -15,6 +15,7 @@
 #include<QTableWidget>
 #include<sl_xuatkho.h>
 #include<QDateTime>
+#include<login.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,7 +32,8 @@ public:
 public:
     QSqlDatabase db;
     bool DatabaseConnected;
-    QString path_db = "C:/Users/ngock/OneDrive/Documents/GitHub/NhapXuatKho_CNDT/quanlykho";
+//    QString path_db = "C:/Users/ngock/OneDrive/Documents/GitHub/NhapXuatKho_CNDT/quanlykho";
+    QString path_db = "D:/PM_QLK/quanlykho";
     QString ID_DoubleCLick;
 
     void UpdateConnection();
@@ -43,6 +45,7 @@ public:
     int SLhienCoCuaMotLK = 0;
     void CapNhatSoLuongLK(QString MaLK, int SoLuongConLai);
     void CapNhatLSXuatKho(QString TenNguoiXK, QString TenLK, QString MaLK, QString SoLuongXK, QString GhiChu, QString NgayXK);
+    void CapNhatDS_loaiLK();
 
 private slots:
     void on_pushButton_2_clicked();
@@ -99,6 +102,8 @@ private:
     Ui::MainWindow *ui;
     SL_XuatKho *m_SL_XuatKho;
 
-     QStringList wordList, wordList_xk;
+    QStringList wordList, wordList_xk;
+    QStringList DsLoai_LK;
+    Login *mLogin;
 };
 #endif // MAINWINDOW_H

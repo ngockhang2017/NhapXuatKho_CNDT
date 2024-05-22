@@ -33,12 +33,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     QCompleter *completer = new QCompleter(wordList, ui->lineEdit_timkiem);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
+    completer->setFilterMode(Qt::MatchContains);
     ui->lineEdit_timkiem->setCompleter(completer);
 
     QCompleter *completer_1 = new QCompleter(wordList_xk, ui->lineEdit_timnguoi_xk);
     completer_1->setCaseSensitivity(Qt::CaseInsensitive);
     ui->lineEdit_timnguoi_xk->setCompleter(completer_1);
 
+    CapNhatDS_loaiLK();
+    ui->comboBox->addItems(this->DsLoai_LK);
+
+    QCompleter *completer_loaiLK = new QCompleter(DsLoai_LK, ui->lineEdit_loaiLK);
+    completer_loaiLK->setCaseSensitivity(Qt::CaseInsensitive);
+    completer_loaiLK->setFilterMode(Qt::MatchContains);
+    ui->lineEdit_loaiLK->setCompleter(completer_loaiLK);
 }
 
 MainWindow::~MainWindow()
@@ -71,10 +79,11 @@ void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE
             ui->lineEdit_DV->setText(query.value(2).toString());
             ui->lineEdit_SoLuong->setText(query.value(3).toString());
             QString loaiLK = query.value(4).toString();
-            if(loaiLK != "RES" && loaiLK != "CAP" &&loaiLK != "JACK" &&loaiLK != "IC")
-                ui->comboBox_loaiLK->setCurrentText("Khác");
-            else
-                ui->comboBox_loaiLK->setCurrentText(loaiLK);
+            ui->lineEdit_loaiLK->setText(loaiLK);
+//            if(loaiLK != "RES" && loaiLK != "CAP" &&loaiLK != "JACK" &&loaiLK != "IC")
+//                ui->comboBox_loaiLK->setCurrentText("Khác");
+//            else
+//                ui->comboBox_loaiLK->setCurrentText(loaiLK);
 
             ui->lineEdit_ghichu->setText(query.value(5).toString());
         }
@@ -343,7 +352,7 @@ void MainWindow::on_pushButton_14_clicked()//bắt đầu sửa thông tin linh 
 void MainWindow::on_pushButton_17_clicked()  //Cập nhật linh kiện
 {
 
-    QString LoaiLK = ui->comboBox_loaiLK->currentText();
+    QString LoaiLK = ui->lineEdit_loaiLK->text();
     QString TenLK = ui->lineEdit_TenLK->text();
     QString MaLK = ui->lineEdit_MaLK->text();
     QString DVTinh = ui->lineEdit_DV->text();
@@ -373,10 +382,6 @@ void MainWindow::on_pushButton_17_clicked()  //Cập nhật linh kiện
                 le->setDisabled(true);
             }
 
-            //            foreach(QTextEdit* le, findChildren<QTextEdit*>())
-            //            {
-            //                le->clear();
-            //            }
             ui->pushButton_10->setDisabled(false); //thêm vào giỏ
             ui->pushButton_11->setDisabled(true); //lưu
             ui->pushButton_12->setDisabled(false); //bắt đầu thêm
@@ -479,7 +484,7 @@ void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
     MaLK1->setText(ui->lineEdit_MaLK->text());
     DVTinh1->setText(ui->lineEdit_DV->text());
     SLTonKho1->setText(ui->lineEdit_SoLuong->text());
-    LoaiLK1->setText(ui->comboBox_loaiLK->currentText());
+    LoaiLK1->setText(ui->lineEdit_loaiLK->text());
     //    GhiChu1->setText(ui->lineEdit_ghichu->text());
 
     ui->tableWidget_2->setItem(row, 0, TenLK1);
@@ -492,7 +497,7 @@ void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
 
 void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
 {
-    QString LoaiLK = ui->comboBox_loaiLK->currentText();
+    QString LoaiLK = ui->lineEdit_loaiLK->text();
     QString TenLK = ui->lineEdit_TenLK->text();
     QString MaLK = ui->lineEdit_MaLK->text();
     QString DVTinh = ui->lineEdit_DV->text();
@@ -534,6 +539,8 @@ void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
             ui->pushButton_14->setDisabled(false);  //sửa lk này
             ui->pushButton_17->setDisabled(true);//cập nhật
             ui->pushButton_20->setDisabled(true); //hủy sửa
+
+            CapNhatDS_loaiLK(); //cập nhật danh sách loại linh kiện
         }
         else
         {
@@ -580,7 +587,7 @@ QList<QString> MainWindow::LoadTenNguoiXuatKho()
     }
     else
     {
-        qDebug() << "Load khong thanh congoooooooooooooooooo";
+        qDebug() << "Load khong thanh cong";
     }
 
     // Đóng kết nối
@@ -733,6 +740,26 @@ void MainWindow::CapNhatLSXuatKho(QString TenNguoiXK, QString TenLK, QString MaL
     else
     {
         QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
+    }
+}
+
+void MainWindow::CapNhatDS_loaiLK()
+{
+    UpdateConnection();
+
+    if(this->DatabaseConnected)
+    {
+        ui->tableWidget->clear();
+        QSqlQuery query(db);
+        query.prepare("select distinct LoaiLK from LinhKien");
+        query.exec();
+
+        int rowcount = 0;
+        this->DsLoai_LK.clear();
+        while(query.next())
+        {
+            DsLoai_LK.append(query.value("LoaiLK").toString());
+        }
     }
 }
 

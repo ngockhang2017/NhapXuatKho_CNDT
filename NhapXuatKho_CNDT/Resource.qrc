@@ -6,5 +6,7 @@
         <file>images/jack.png</file>
         <file>images/res_image.jpg</file>
         <file>images/images-removebg-preview.png</file>
+        <file>images/depo.jpg</file>
+        <file>images/login_img.png</file>
     </qresource>
 </RCC>
