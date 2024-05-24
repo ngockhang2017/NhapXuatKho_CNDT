@@ -728,7 +728,7 @@ public:
 
         label_3 = new QLabel(widget_8);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font2);
+        label_3->setFont(font6);
 
         horizontalLayout_2->addWidget(label_3);
 
@@ -756,15 +756,13 @@ public:
 
         label_4 = new QLabel(widget_8);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        QFont font9;
-        font9.setFamily(QString::fromUtf8("Palatino Linotype"));
-        font9.setPointSize(10);
-        label_4->setFont(font9);
+        label_4->setFont(font6);
 
         horizontalLayout_2->addWidget(label_4);
 
         comboBox = new QComboBox(widget_8);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setFont(font2);
 
         horizontalLayout_2->addWidget(comboBox);
 
@@ -812,7 +810,7 @@ public:
         verticalLayout_3->addWidget(widget_6);
 
         verticalLayout_3->setStretch(0, 6);
-        verticalLayout_3->setStretch(1, 2);
+        verticalLayout_3->setStretch(1, 1);
         verticalLayout_3->setStretch(2, 4);
         verticalLayout_3->setStretch(3, 1);
 

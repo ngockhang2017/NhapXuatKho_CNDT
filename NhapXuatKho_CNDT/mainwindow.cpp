@@ -998,3 +998,17 @@ void MainWindow::on_pushButton_18_clicked()  /// xuất lịch sử
         QMessageBox::information(nullptr, "Export to Excel", "Exported successfully!");
     }
 }
+
+void MainWindow::on_comboBox_editTextChanged(const QString &arg1)
+{
+//    ui->tableWidget->clear();
+//    qDebug() << "&arg1 --------------------"<< endl;
+//    Seclect("CẢM");
+}
+
+void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+    ui->tableWidget->clear();
+    ui->tableWidget->scrollToTop();
+    Seclect(arg1);
+}

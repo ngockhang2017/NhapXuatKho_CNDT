@@ -127,7 +127,7 @@
     </item>
     <item>
      <widget class="QWidget" name="widget_2" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="6,2,4,1">
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="6,1,4,1">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -1005,6 +1005,7 @@ color: rgb(255, 255, 255);</string>
               <widget class="QLabel" name="label_3">
                <property name="font">
                 <font>
+                 <family>Palatino Linotype</family>
                  <pointsize>10</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1068,6 +1069,8 @@ color: rgb(255, 255, 255);
                 <font>
                  <family>Palatino Linotype</family>
                  <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="text">
@@ -1076,7 +1079,15 @@ color: rgb(255, 255, 255);
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox"/>
+              <widget class="QComboBox" name="comboBox">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+              </widget>
              </item>
              <item>
               <spacer name="horizontalSpacer_3">
