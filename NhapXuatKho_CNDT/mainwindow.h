@@ -91,7 +91,6 @@ private slots:
 
     void on_pushButton_23_clicked();
 
-
     void on_dateEdit_editingFinished();
 
     void on_pushButton_19_clicked();

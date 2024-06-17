@@ -160,7 +160,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1079, 756);
+        MainWindow->resize(1148, 767);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -811,7 +811,7 @@ public:
 
         verticalLayout_3->setStretch(0, 6);
         verticalLayout_3->setStretch(1, 1);
-        verticalLayout_3->setStretch(2, 4);
+        verticalLayout_3->setStretch(2, 6);
         verticalLayout_3->setStretch(3, 1);
 
         verticalLayout->addWidget(widget_2);
@@ -821,7 +821,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1079, 25));
+        menubar->setGeometry(QRect(0, 0, 1148, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -850,7 +850,7 @@ public:
         pushButton_12->setText(QCoreApplication::translate("MainWindow", "B\341\272\257t \304\221\341\272\247u th\303\252m m\341\273\233i", nullptr));
         pushButton_11->setText(QCoreApplication::translate("MainWindow", "L\306\260u", nullptr));
         pushButton_13->setText(QCoreApplication::translate("MainWindow", "X\303\263a linh ki\341\273\207n", nullptr));
-        pushButton_14->setText(QCoreApplication::translate("MainWindow", "S\341\273\255a th\303\264ng tin linh ki\341\273\207n", nullptr));
+        pushButton_14->setText(QCoreApplication::translate("MainWindow", "B\341\272\257t \304\221\341\272\247u s\341\273\255a th\303\264ng tin linh ki\341\273\207n", nullptr));
         pushButton_17->setText(QCoreApplication::translate("MainWindow", "C\341\272\255p nh\341\272\255t linh ki\341\273\207n", nullptr));
         pushButton_20->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y s\341\273\255a linh ki\341\273\207n", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Th\303\264ng tin linh ki\341\273\207n", nullptr));
