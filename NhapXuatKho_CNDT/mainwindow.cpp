@@ -47,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
     completer_loaiLK->setCaseSensitivity(Qt::CaseInsensitive);
     completer_loaiLK->setFilterMode(Qt::MatchContains);
     ui->lineEdit_loaiLK->setCompleter(completer_loaiLK);
+
+    ui->dateEdit_xk_ngay->setDate(QDate::currentDate());
 }
 
 MainWindow::~MainWindow()
@@ -523,6 +525,15 @@ void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
     ui->tableWidget_2->setItem(row, 3, SLTonKho1);
     ui->tableWidget_2->setItem(row, 4, LoaiLK1);
     //    ui->tableWidget_2->setItem(row, 5, GhiChu1);
+
+    foreach(QLineEdit* le, findChildren<QLineEdit*>())
+    {
+        if(le != ui->lineEdit_timkiem)
+        {
+            le->clear();
+            //                    le->setDisabled(true);
+        }
+    }
 }
 
 void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
@@ -843,22 +854,55 @@ void MainWindow::on_lineEdit_xksl_editingFinished()
             }
         }
     }
-    ui->lineEdit_xksl->clear();
+//    ui->lineEdit_xksl->clear();
 }
 
 void MainWindow::on_pushButton_15_clicked()//Xuất kho
 {
-    for (int row = 0; row < ui->tableWidget_2->rowCount(); row++)
+    if(ui->lineEdit_xk_tennguoi->text() == "" || ui->lineEdit_xksl->text() == "" || ui->lineEdit_xksl->text().toInt() < 0)
     {
-        QTableWidgetItem* item = ui->tableWidget_2->item(row, 1);
-        QString MaLK = item->text();
-
-        int SLConLai = ( ui->tableWidget_2->item(row, 3)->text() ).toInt() - ( ui->tableWidget_2->item(row, 5)->text() ).toInt();
-        CapNhatSoLuongLK(MaLK, SLConLai);
-        CapNhatLSXuatKho(ui->lineEdit_xk_tennguoi->text(), ui->tableWidget_2->item(row, 0)->text(), ui->tableWidget_2->item(row, 1)->text(), ui->tableWidget_2->item(row, 5)->text(), ui->lineEdit_xk_ghichu->text(), ui->dateEdit_xk_ngay->date().toString());
+        QMessageBox::warning(this, "thông báo", "TÊN NGƯỜI XUẤT KHO và SỐ LƯỢNG XUẤT KHO không được trống, xin hãy nhập tên người xuất kho!");
     }
-    QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
-    on_pushButton_21_clicked();
+    else
+    {
+        //Kiểm tra số lượng xuất kho phù hợp
+        for (int row = 0; row < ui->tableWidget_2->rowCount(); row++)
+        {
+            QTableWidgetItem* item = ui->tableWidget_2->item(row, 1);
+            QString MaLK = item->text();
+            int SLHienTai = ui->tableWidget_2->item(row, 3)->text().toInt();
+            int SLXuatKho = ui->tableWidget_2->item(row, 5)->text().toInt();
+            if(SLHienTai < SLXuatKho)
+            {
+                QMessageBox::warning(this, "Thông báo", "Số lượng hiện tại của " + item->text() + " nhỏ hơn số lượng xuất kho!");
+                return;
+            }
+
+        }
+
+        //bắt đầu trừ đi số linh kiện còn lại
+        for (int row = 0; row < ui->tableWidget_2->rowCount(); row++)
+        {
+            QTableWidgetItem* item = ui->tableWidget_2->item(row, 1);
+            QString MaLK = item->text();
+            int SLHienTai = ui->tableWidget_2->item(row, 3)->text().toInt();
+            int SLXuatKho = ui->tableWidget_2->item(row, 5)->text().toInt();
+            if(SLHienTai >= SLXuatKho)
+            {
+                int SLConLai = SLHienTai - SLXuatKho;
+                CapNhatSoLuongLK(MaLK, SLConLai);
+                CapNhatLSXuatKho(ui->lineEdit_xk_tennguoi->text(), ui->tableWidget_2->item(row, 0)->text(), ui->tableWidget_2->item(row, 1)->text(), ui->tableWidget_2->item(row, 5)->text(), ui->lineEdit_xk_ghichu->text(), QDate::currentDate().toString());
+            }
+            else
+            {
+                QMessageBox::warning(this, "Thông báo", "Số lượng hiện tại của " + item->text() + " nhỏ hơn số lượng xuất kho!");
+                break;
+            }
+
+        }
+        QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
+        on_pushButton_21_clicked();
+    }
 }
 
 void MainWindow::on_pushButton_22_clicked() //làm mới lịch sử
