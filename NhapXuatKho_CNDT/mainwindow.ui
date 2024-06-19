@@ -153,7 +153,7 @@
           </font>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -964,6 +964,21 @@ color: rgb(255, 255, 255);</string>
           <attribute name="title">
            <string>Thống kê kho</string>
           </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,8">
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>THỐNG KÊ SỐ LƯỢNG CÒN LẠI TRONG KHO</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="tableWidget_TK"/>
+           </item>
+          </layout>
          </widget>
         </widget>
        </item>

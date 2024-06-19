@@ -49,6 +49,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_loaiLK->setCompleter(completer_loaiLK);
 
     ui->dateEdit_xk_ngay->setDate(QDate::currentDate());
+
+    CapNhatBangTK();
+    ui->tableWidget_TK->setColumnWidth(0, 500);
+    ui->tableWidget_TK->setColumnWidth(1, 500);
+
+    on_pushButton_22_clicked(); //load lịch sử xuất kho
 }
 
 MainWindow::~MainWindow()
@@ -406,6 +412,22 @@ void MainWindow::on_pushButton_17_clicked()  //Cập nhật linh kiện
                 ui->pushButton_14->setDisabled(false);  //sửa lk này
                 ui->pushButton_17->setDisabled(true);//cập nhật
                 ui->pushButton_20->setDisabled(true); //hủy sửa
+
+
+                CapNhatDS_loaiLK(); //cập nhật danh sách loại linh kiện
+                ui->comboBox->addItems(this->DsLoai_LK);
+
+                QCompleter *completer_loaiLK = new QCompleter(DsLoai_LK, ui->lineEdit_loaiLK);
+                completer_loaiLK->setCaseSensitivity(Qt::CaseInsensitive);
+                completer_loaiLK->setFilterMode(Qt::MatchContains);
+                ui->lineEdit_loaiLK->setCompleter(completer_loaiLK);
+                //Gợi ý tìm kiếm
+                wordList = LoadTenLK();
+                QCompleter *completer = new QCompleter(wordList, ui->lineEdit_timkiem);
+                completer->setCaseSensitivity(Qt::CaseInsensitive);
+                completer->setFilterMode(Qt::MatchContains);
+                ui->lineEdit_timkiem->setCompleter(completer);
+                CapNhatBangTK();
             }
             else
             {
@@ -473,6 +495,22 @@ void MainWindow::on_pushButton_13_clicked() //xóa linh kiện
                 ui->pushButton_14->setDisabled(true);  //sửa lk này
                 ui->pushButton_17->setDisabled(true);//cập nhật
                 ui->pushButton_20->setDisabled(true); //hủy sửa
+
+                CapNhatDS_loaiLK(); //cập nhật danh sách loại linh kiện
+                ui->comboBox->addItems(this->DsLoai_LK);
+
+                QCompleter *completer_loaiLK = new QCompleter(DsLoai_LK, ui->lineEdit_loaiLK);
+                completer_loaiLK->setCaseSensitivity(Qt::CaseInsensitive);
+                completer_loaiLK->setFilterMode(Qt::MatchContains);
+                ui->lineEdit_loaiLK->setCompleter(completer_loaiLK);
+                //Gợi ý tìm kiếm
+                wordList = LoadTenLK();
+                QCompleter *completer = new QCompleter(wordList, ui->lineEdit_timkiem);
+                completer->setCaseSensitivity(Qt::CaseInsensitive);
+                completer->setFilterMode(Qt::MatchContains);
+                ui->lineEdit_timkiem->setCompleter(completer);
+                CapNhatBangTK();
+
             }
             this->db.close();
         }
@@ -534,6 +572,7 @@ void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
             //                    le->setDisabled(true);
         }
     }
+
 }
 
 void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
@@ -595,6 +634,8 @@ void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
             completer->setCaseSensitivity(Qt::CaseInsensitive);
             completer->setFilterMode(Qt::MatchContains);
             ui->lineEdit_timkiem->setCompleter(completer);
+
+            CapNhatBangTK();
         }
         else
         {
@@ -821,6 +862,41 @@ void MainWindow::CapNhatDS_loaiLK()
     }
 }
 
+void MainWindow::CapNhatBangTK()
+{
+    UpdateConnection();
+    if(this->DatabaseConnected)
+    {
+        ui->tableWidget_TK->clear();
+
+        QSqlQuery query(db);
+        query.prepare("SELECT LoaiLK, SUM(SoLuongConLai) AS TongSoLuongConLai FROM LinhKien GROUP BY LoaiLK");
+        query.exec();
+
+        ui->tableWidget_TK->setColumnCount(2);
+        QStringList list_labels;
+        list_labels << "TÊN LOẠI LINH KIỆN" << " TỔNG SỐ LƯỢNG CÒN LẠI" ;
+        ui->tableWidget_TK->setHorizontalHeaderLabels(list_labels);
+
+        int rowcount = 0;
+        while(query.next())
+        {
+            ui->tableWidget_TK->insertRow(rowcount);
+            QTableWidgetItem *LoaiLK = new QTableWidgetItem;
+            QTableWidgetItem *SoLuong = new QTableWidgetItem;
+
+            LoaiLK->setText(query.value(0).toString());
+            SoLuong->setText(query.value(1).toString());
+
+            ui->tableWidget_TK->setItem(rowcount, 0, LoaiLK);
+            ui->tableWidget_TK->setItem(rowcount, 1, SoLuong);
+
+            rowcount++;
+        }
+        this->db.close();
+    }
+}
+
 void MainWindow::on_pushButton_21_clicked() // xuất file excel giỏ
 {
     QString fileName = QFileDialog::getSaveFileName(nullptr, "Export to Excel", "", "Excel Files (*.xls *.xlsx)");
@@ -854,7 +930,7 @@ void MainWindow::on_lineEdit_xksl_editingFinished()
             }
         }
     }
-//    ui->lineEdit_xksl->clear();
+    //    ui->lineEdit_xksl->clear();
 }
 
 void MainWindow::on_pushButton_15_clicked()//Xuất kho
@@ -881,27 +957,26 @@ void MainWindow::on_pushButton_15_clicked()//Xuất kho
         }
 
         //bắt đầu trừ đi số linh kiện còn lại
+        bool temp = false;
         for (int row = 0; row < ui->tableWidget_2->rowCount(); row++)
         {
             QTableWidgetItem* item = ui->tableWidget_2->item(row, 1);
             QString MaLK = item->text();
             int SLHienTai = ui->tableWidget_2->item(row, 3)->text().toInt();
             int SLXuatKho = ui->tableWidget_2->item(row, 5)->text().toInt();
-            if(SLHienTai >= SLXuatKho)
-            {
-                int SLConLai = SLHienTai - SLXuatKho;
-                CapNhatSoLuongLK(MaLK, SLConLai);
-                CapNhatLSXuatKho(ui->lineEdit_xk_tennguoi->text(), ui->tableWidget_2->item(row, 0)->text(), ui->tableWidget_2->item(row, 1)->text(), ui->tableWidget_2->item(row, 5)->text(), ui->lineEdit_xk_ghichu->text(), QDate::currentDate().toString());
-            }
-            else
-            {
-                QMessageBox::warning(this, "Thông báo", "Số lượng hiện tại của " + item->text() + " nhỏ hơn số lượng xuất kho!");
-                break;
-            }
 
+            int SLConLai = SLHienTai - SLXuatKho;
+            CapNhatSoLuongLK(MaLK, SLConLai);
+            CapNhatLSXuatKho(ui->lineEdit_xk_tennguoi->text(), ui->tableWidget_2->item(row, 0)->text(), ui->tableWidget_2->item(row, 1)->text(), ui->tableWidget_2->item(row, 5)->text(), ui->lineEdit_xk_ghichu->text(), QDate::currentDate().toString());
+
+            temp = true;
         }
-        QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
-        on_pushButton_21_clicked();
+        if(temp)
+        {
+            CapNhatBangTK();
+            QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
+            on_pushButton_21_clicked();
+        }
     }
 }
 

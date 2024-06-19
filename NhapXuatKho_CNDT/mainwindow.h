@@ -46,6 +46,7 @@ public:
     void CapNhatSoLuongLK(QString MaLK, int SoLuongConLai);
     void CapNhatLSXuatKho(QString TenNguoiXK, QString TenLK, QString MaLK, QString SoLuongXK, QString GhiChu, QString NgayXK);
     void CapNhatDS_loaiLK();
+    void CapNhatBangTK();
 
 private slots:
     void on_pushButton_2_clicked();

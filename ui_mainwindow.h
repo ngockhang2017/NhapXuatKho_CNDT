@@ -134,6 +134,9 @@ public:
     QPushButton *pushButton_18;
     QPushButton *pushButton_19;
     QWidget *tab_4;
+    QVBoxLayout *verticalLayout_10;
+    QLabel *label_6;
+    QTableWidget *tableWidget_TK;
     QWidget *widget_5;
     QVBoxLayout *verticalLayout_4;
     QWidget *widget_8;
@@ -708,6 +711,21 @@ public:
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        verticalLayout_10 = new QVBoxLayout(tab_4);
+        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
+        label_6 = new QLabel(tab_4);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_10->addWidget(label_6);
+
+        tableWidget_TK = new QTableWidget(tab_4);
+        tableWidget_TK->setObjectName(QString::fromUtf8("tableWidget_TK"));
+
+        verticalLayout_10->addWidget(tableWidget_TK);
+
+        verticalLayout_10->setStretch(0, 1);
+        verticalLayout_10->setStretch(1, 8);
         tabWidget->addTab(tab_4, QString());
 
         verticalLayout_3->addWidget(tabWidget);
@@ -829,7 +847,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -878,6 +896,7 @@ public:
         pushButton_18->setText(QCoreApplication::translate("MainWindow", "Xu\341\272\245t File", nullptr));
         pushButton_19->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 xu\341\272\245t kho", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "TH\341\273\220NG K\303\212 S\341\273\220 L\306\257\341\273\242NG C\303\222N L\341\272\240I TRONG KHO", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QCoreApplication::translate("MainWindow", "Th\341\273\221ng k\303\252 kho", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u linh ki\341\273\207n:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "T\303\254m", nullptr));
