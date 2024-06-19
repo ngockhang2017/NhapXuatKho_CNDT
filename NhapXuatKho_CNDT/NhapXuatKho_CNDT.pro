@@ -19,16 +19,19 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
+    quanly_tk.cpp \
     sl_xuatkho.cpp
 
 HEADERS += \
     login.h \
     mainwindow.h \
+    quanly_tk.h \
     sl_xuatkho.h
 
 FORMS += \
     login.ui \
     mainwindow.ui \
+    quanly_tk.ui \
     sl_xuatkho.ui
 
 # Default rules for deployment.
