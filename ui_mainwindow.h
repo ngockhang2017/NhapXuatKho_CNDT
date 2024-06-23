@@ -535,6 +535,8 @@ public:
 
         dateEdit_xk_ngay = new QDateEdit(groupBox_4);
         dateEdit_xk_ngay->setObjectName(QString::fromUtf8("dateEdit_xk_ngay"));
+        dateEdit_xk_ngay->setAcceptDrops(false);
+        dateEdit_xk_ngay->setReadOnly(true);
         dateEdit_xk_ngay->setDateTime(QDateTime(QDate(2023, 8, 31), QTime(0, 0, 0)));
 
         gridLayout_3->addWidget(dateEdit_xk_ngay, 1, 1, 1, 1);
@@ -847,7 +849,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

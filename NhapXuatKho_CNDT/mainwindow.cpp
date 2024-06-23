@@ -118,6 +118,7 @@ void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE
         //        ui->tab_4->close();
 
         this->db.close();
+        ui->tabWidget->setCurrentIndex(0);
     }
     else
     {
@@ -540,39 +541,45 @@ void MainWindow::on_pushButton_12_clicked()  //bắt đầu thêm mới linh ki�
 
 void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
 {
-    int row = ui->tableWidget_2->rowCount();
-    ui->tableWidget_2->insertRow(row);
-
-    QTableWidgetItem *TenLK1 = new QTableWidgetItem;
-    QTableWidgetItem * MaLK1 = new QTableWidgetItem;
-    QTableWidgetItem *DVTinh1 = new QTableWidgetItem;
-    QTableWidgetItem *SLTonKho1 = new QTableWidgetItem;
-    QTableWidgetItem *LoaiLK1 = new QTableWidgetItem;
-    //    QTableWidgetItem *GhiChu1 = new QTableWidgetItem;
-
-    TenLK1->setText(ui->lineEdit_TenLK->text());
-    MaLK1->setText(ui->lineEdit_MaLK->text());
-    DVTinh1->setText(ui->lineEdit_DV->text());
-    SLTonKho1->setText(ui->lineEdit_SoLuong->text());
-    LoaiLK1->setText(ui->lineEdit_loaiLK->text());
-    //    GhiChu1->setText(ui->lineEdit_ghichu->text());
-
-    ui->tableWidget_2->setItem(row, 0, TenLK1);
-    ui->tableWidget_2->setItem(row, 1, MaLK1);
-    ui->tableWidget_2->setItem(row, 2, DVTinh1);
-    ui->tableWidget_2->setItem(row, 3, SLTonKho1);
-    ui->tableWidget_2->setItem(row, 4, LoaiLK1);
-    //    ui->tableWidget_2->setItem(row, 5, GhiChu1);
-
-    foreach(QLineEdit* le, findChildren<QLineEdit*>())
+    if( (ui->lineEdit_MaLK->text() == "") || (ui->lineEdit_TenLK->text() == "") || (ui->lineEdit_DV->text() == "") || (ui->lineEdit_SoLuong->text() == "") || (ui->lineEdit_loaiLK->text() == "") )
     {
-        if(le != ui->lineEdit_timkiem)
+        QMessageBox::warning(this, "Thông báo", "Chưa có thông tin Linh kiện được chọn (thông tin phải đầy đủ)!");
+    }
+    else
+    {
+        int row = ui->tableWidget_2->rowCount();
+        ui->tableWidget_2->insertRow(row);
+
+        QTableWidgetItem *TenLK1 = new QTableWidgetItem;
+        QTableWidgetItem * MaLK1 = new QTableWidgetItem;
+        QTableWidgetItem *DVTinh1 = new QTableWidgetItem;
+        QTableWidgetItem *SLTonKho1 = new QTableWidgetItem;
+        QTableWidgetItem *LoaiLK1 = new QTableWidgetItem;
+        //    QTableWidgetItem *GhiChu1 = new QTableWidgetItem;
+
+        TenLK1->setText(ui->lineEdit_TenLK->text());
+        MaLK1->setText(ui->lineEdit_MaLK->text());
+        DVTinh1->setText(ui->lineEdit_DV->text());
+        SLTonKho1->setText(ui->lineEdit_SoLuong->text());
+        LoaiLK1->setText(ui->lineEdit_loaiLK->text());
+        //    GhiChu1->setText(ui->lineEdit_ghichu->text());
+
+        ui->tableWidget_2->setItem(row, 0, TenLK1);
+        ui->tableWidget_2->setItem(row, 1, MaLK1);
+        ui->tableWidget_2->setItem(row, 2, DVTinh1);
+        ui->tableWidget_2->setItem(row, 3, SLTonKho1);
+        ui->tableWidget_2->setItem(row, 4, LoaiLK1);
+        //    ui->tableWidget_2->setItem(row, 5, GhiChu1);
+
+        foreach(QLineEdit* le, findChildren<QLineEdit*>())
         {
-            le->clear();
-            //                    le->setDisabled(true);
+            if(le != ui->lineEdit_timkiem)
+            {
+                le->clear();
+                //                    le->setDisabled(true);
+            }
         }
     }
-
 }
 
 void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
@@ -1185,6 +1192,28 @@ void MainWindow::on_pushButton_7_clicked()  //QUẢN LÝ TÀI KHOẢN
 
 void MainWindow::onLoginSuccessful(const QString &role)
 {
-    qDebug() << "ROLE DANG NHAP LA: " << role << endl;
     this->show();
+    if(role == "admin")
+        QMessageBox::information(this, "Thông báo", "Truy cập dưới quyền Admin!");
+    else if(role == "ql")
+    {
+        QMessageBox::information(this, "Thông báo", "Truy cập dưới quyền Quản lý kho!");
+        ui->pushButton_7->setDisabled(true); //không thể truy cập vào Quản lý tài khoản
+        ui->pushButton_8->setDisabled(true);//không thể xem Lịch sử xuất kho
+        ui->tabWidget->setTabEnabled(2, false); //không thể xem Lịch sử xuất kho
+    }
+    else if(role == "nvkt")
+    {
+        QMessageBox::information(this, "Thông báo", "Truy cập dưới quyền Nhân viên kỹ thuật!");
+        ui->pushButton_7->setDisabled(true); //không thể truy cập vào Quản lý tài khoản
+        ui->pushButton_8->setDisabled(true);//không thể xem Lịch sử xuất kho
+        ui->tabWidget->setTabEnabled(2, false); //không thể xem Lịch sử xuất kho
+        ui->pushButton_11->setDisabled(true);
+        ui->pushButton_12->setDisabled(true);
+        ui->pushButton_13->setDisabled(true);
+        ui->pushButton_14->setDisabled(true);
+        ui->pushButton_17->setDisabled(true);
+        ui->pushButton_20->setDisabled(true);
+    }
+
 }

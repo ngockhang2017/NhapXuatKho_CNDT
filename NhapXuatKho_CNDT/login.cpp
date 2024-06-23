@@ -37,48 +37,40 @@ void Login::on_pushButton_clicked() // Login
 
         QSqlQuery query(db);
         query.prepare("select * FROM TaiKhoan WHERE User == :user AND Pass == :pass");
-                query.bindValue(":user", username);
-                query.bindValue(":pass", password);
-
-
-        /* bool temp = false;
-        if (query.exec())
-        {
-            qDebug() << "---------------------SQLITE  EXEC"<< endl;
-            while (query.next())
-            {
-                QString role = query.value(0).toString();
-                qDebug()<< "======= role trong login la: " << role << endl;
-                emit LoginSuccessful(role);
-                //managePermissions(role);
-                temp = true;
-            }
-            if(temp)
-            {
-                QMessageBox::warning(this, "Login Failed", "Invalid username or password");
-            }
-        }
-        else
-        {
-            qDebug() << "Query execution error:" << query.lastError().text();
-            //            qDebug() << "Executed query:" << query.lastQuery();
-            //            qDebug() << "Database open status:" << db.isOpen();
-        }*/
+        query.bindValue(":user", username);
+        query.bindValue(":pass", password);
 
         if (query.exec()) {
             if (query.next()) {
                 QString role = query.value(0).toString();
                 emit LoginSuccessful(role);
-            } else {
-                QMessageBox::warning(this, "Login Failed", "Invalid username or password");
+                this->close();
             }
-        } else {
-            qDebug() << "Query execution error:" << query.lastError();
+            else
+            {
+                QMessageBox::warning(this, "Login Failed", "Invalid username or password");
+                ui->lineEditPass->clear();
+                ui->lineEditUser->clear();
+            }
         }
-
+        else
+            qDebug() << "Query execution error:" << query.lastError();
     }
     else
-    {
         qDebug() << "---------------------SQLITE CANNOT CONNTECTED"<< endl;
-    }
+}
+
+void Login::on_pushButton_2_clicked()
+{
+    QApplication::quit();
+}
+
+void Login::on_lineEditPass_editingFinished()
+{
+    on_pushButton_clicked();
+}
+
+void Login::on_lineEditUser_editingFinished()
+{
+    ui->lineEditPass->setFocus();
 }

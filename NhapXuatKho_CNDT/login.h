@@ -29,6 +29,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_lineEditPass_editingFinished();
+
+    void on_lineEditUser_editingFinished();
+
 signals:
     void LoginSuccessful(const QString &role);
 
