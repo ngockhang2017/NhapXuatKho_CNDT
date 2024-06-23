@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Quản lý tài khoản</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
@@ -236,7 +236,7 @@
      <x>0</x>
      <y>0</y>
      <width>984</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -957,7 +957,6 @@ void MainWindow::on_pushButton_15_clicked()//Xuất kho
         }
 
         //bắt đầu trừ đi số linh kiện còn lại
-        bool temp = false;
         for (int row = 0; row < ui->tableWidget_2->rowCount(); row++)
         {
             QTableWidgetItem* item = ui->tableWidget_2->item(row, 1);
@@ -969,14 +968,10 @@ void MainWindow::on_pushButton_15_clicked()//Xuất kho
             CapNhatSoLuongLK(MaLK, SLConLai);
             CapNhatLSXuatKho(ui->lineEdit_xk_tennguoi->text(), ui->tableWidget_2->item(row, 0)->text(), ui->tableWidget_2->item(row, 1)->text(), ui->tableWidget_2->item(row, 5)->text(), ui->lineEdit_xk_ghichu->text(), QDate::currentDate().toString());
 
-            temp = true;
         }
-        if(temp)
-        {
-            CapNhatBangTK();
-            QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
-            on_pushButton_21_clicked();
-        }
+        CapNhatBangTK();
+        QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
+        on_pushButton_21_clicked();
     }
 }
 
@@ -1180,4 +1175,16 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
     ui->tableWidget->clear();
     ui->tableWidget->scrollToTop();
     Seclect(arg1);
+}
+
+void MainWindow::on_pushButton_7_clicked()  //QUẢN LÝ TÀI KHOẢN
+{
+    mQuanLy_TK = new QuanLy_TK();
+    mQuanLy_TK->show();
+}
+
+void MainWindow::onLoginSuccessful(const QString &role)
+{
+    qDebug() << "ROLE DANG NHAP LA: " << role << endl;
+    this->show();
 }

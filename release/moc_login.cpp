@@ -78,14 +78,14 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         auto *_t = static_cast<Login *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->LoginSuccessful((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 0: _t->LoginSuccessful((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 1: _t->on_pushButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Login::*)(QString );
+            using _t = void (Login::*)(const QString & );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Login::LoginSuccessful)) {
                 *result = 0;
                 return;
@@ -135,7 +135,7 @@ int Login::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Login::LoginSuccessful(QString _t1)
+void Login::LoginSuccessful(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

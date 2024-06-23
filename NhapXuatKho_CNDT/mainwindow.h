@@ -16,6 +16,7 @@
 #include<sl_xuatkho.h>
 #include<QDateTime>
 #include<login.h>
+#include<quanly_tk.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,8 +33,9 @@ public:
 public:
     QSqlDatabase db;
     bool DatabaseConnected;
-//    QString path_db = "C:/Users/ngock/OneDrive/Documents/GitHub/NhapXuatKho_CNDT/quanlykho";
-    QString path_db = "D:/PM_QLK/quanlykho";
+    //    QString path_db = "C:/Users/ngock/OneDrive/Documents/GitHub/NhapXuatKho_CNDT/quanlykho";
+    QString path_db = "C:\\Users\\ngock\\OneDrive\\Documents\\GitHub\\NhapXuatKho_CNDT\\quanlykho";
+
     QString ID_DoubleCLick;
 
     void UpdateConnection();
@@ -102,6 +104,12 @@ private slots:
 
     void on_comboBox_currentIndexChanged(const QString &arg1);
 
+    void on_pushButton_7_clicked();
+
+    // MainWindow.h
+public slots:
+    void onLoginSuccessful(const QString &role);
+
 private:
     Ui::MainWindow *ui;
     SL_XuatKho *m_SL_XuatKho;
@@ -109,5 +117,6 @@ private:
     QStringList wordList, wordList_xk;
     QStringList DsLoai_LK;
     Login *mLogin;
+    QuanLy_TK *mQuanLy_TK;
 };
 #endif // MAINWINDOW_H

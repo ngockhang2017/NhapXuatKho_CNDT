@@ -901,7 +901,7 @@ public:
         label_3->setText(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u linh ki\341\273\207n:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "T\303\254m", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "L\341\273\215c trong kho:", nullptr));
-        pushButton_7->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 nh\341\272\255p kho", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Qu\341\272\243n l\303\275 t\303\240i kho\341\272\243n", nullptr));
         pushButton_8->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 xu\341\272\245t kho", nullptr));
         pushButton_9->setText(QCoreApplication::translate("MainWindow", "Xu\341\272\245t file Excel", nullptr));
     } // retranslateUi

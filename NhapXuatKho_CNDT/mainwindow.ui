@@ -1152,7 +1152,7 @@ color: rgb(255, 255, 255);
           <item>
            <widget class="QPushButton" name="pushButton_7">
             <property name="text">
-             <string>Lịch sử nhập kho</string>
+             <string>Quản lý tài khoản</string>
             </property>
            </widget>
           </item>
