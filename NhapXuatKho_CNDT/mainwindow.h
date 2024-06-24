@@ -108,7 +108,7 @@ private slots:
 
     // MainWindow.h
 public slots:
-    void onLoginSuccessful(const QString &role);
+    void onLoginSuccessful(const QString &role, const QString &user);
 
 private:
     Ui::MainWindow *ui;

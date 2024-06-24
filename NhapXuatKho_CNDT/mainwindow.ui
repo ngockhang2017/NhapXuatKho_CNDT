@@ -153,7 +153,7 @@
           </font>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -608,7 +608,11 @@ color: rgb(255, 255, 255);</string>
                     <number>9</number>
                    </property>
                    <item row="0" column="1">
-                    <widget class="QLineEdit" name="lineEdit_xk_tennguoi"/>
+                    <widget class="QLineEdit" name="lineEdit_xk_tennguoi">
+                     <property name="readOnly">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
                    </item>
                    <item row="2" column="0">
                     <widget class="QLabel" name="label_20">

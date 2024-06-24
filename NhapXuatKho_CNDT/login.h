@@ -36,7 +36,7 @@ private slots:
     void on_lineEditUser_editingFinished();
 
 signals:
-    void LoginSuccessful(const QString &role);
+    void LoginSuccessful(const QString &role, const QString &user);
 
 private:
     Ui::Login *ui;

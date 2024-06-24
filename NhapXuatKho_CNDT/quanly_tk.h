@@ -31,8 +31,22 @@ public:
 private slots:
     void on_comboBox_currentIndexChanged(const QString &arg1);
 
+    void on_pushButton_BatDauThem_clicked();
+
+    void on_lineEdit_MatKhau_textEdited(const QString &arg1);
+
+    void on_lineEdit_MatKhau_editingFinished();
+
+    void on_pushButton_pressed();
+
+    void on_pushButton_released();
+
+    void on_pushButton_Luu_clicked();
+    void SectionDoubleClick(int row, int column);
+
 private:
     Ui::QuanLy_TK *ui;
+    QString User;
 };
 
 #endif // QUANLY_TK_H

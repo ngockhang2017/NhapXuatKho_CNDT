@@ -151,20 +151,14 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QLineEdit" name="lineEdit"/>
-            </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="lineEdit_3"/>
+             <widget class="QLineEdit" name="lineEdit_TenTK"/>
             </item>
             <item row="5" column="1">
-             <widget class="QPushButton" name="pushButton_4">
+             <widget class="QPushButton" name="pushButton_Luu">
               <property name="text">
                <string>Lưu tài khoản mới</string>
               </property>
              </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="lineEdit_2"/>
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_7">
@@ -174,21 +168,21 @@
              </widget>
             </item>
             <item row="4" column="0">
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="pushButton_CapNhat">
               <property name="text">
                <string>Cập nhật thông tin</string>
               </property>
              </widget>
             </item>
             <item row="4" column="1">
-             <widget class="QPushButton" name="pushButton_2">
+             <widget class="QPushButton" name="pushButton_XoaTK">
               <property name="text">
                <string>Xóa tài khoản này</string>
               </property>
              </widget>
             </item>
             <item row="5" column="0">
-             <widget class="QPushButton" name="pushButton_3">
+             <widget class="QPushButton" name="pushButton_BatDauThem">
               <property name="text">
                <string>Bắt đầu cấp tài khoản mới</string>
               </property>
@@ -203,6 +197,59 @@
             </item>
             <item row="0" column="1">
              <widget class="QComboBox" name="comboBox">
+              <item>
+               <property name="text">
+                <string>Admin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Quản lý kho</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kỹ thuật viên</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QWidget" name="widget_6" native="true">
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_MatKhau"/>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton">
+                 <property name="text">
+                  <string>Xem</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QComboBox" name="comboBox_QuyenTruyCap">
               <item>
                <property name="text">
                 <string>Admin</string>
@@ -236,7 +283,7 @@
      <x>0</x>
      <y>0</y>
      <width>984</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

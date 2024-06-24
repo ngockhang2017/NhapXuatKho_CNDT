@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[35];
-    char stringdata0[779];
+    QByteArrayData data[36];
+    char stringdata0[784];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -66,7 +66,8 @@ QT_MOC_LITERAL(30, 695, 4), // "arg1"
 QT_MOC_LITERAL(31, 700, 31), // "on_comboBox_currentIndexChanged"
 QT_MOC_LITERAL(32, 732, 23), // "on_pushButton_7_clicked"
 QT_MOC_LITERAL(33, 756, 17), // "onLoginSuccessful"
-QT_MOC_LITERAL(34, 774, 4) // "role"
+QT_MOC_LITERAL(34, 774, 4), // "role"
+QT_MOC_LITERAL(35, 779, 4) // "user"
 
     },
     "MainWindow\0on_pushButton_2_clicked\0\0"
@@ -93,7 +94,7 @@ QT_MOC_LITERAL(34, 774, 4) // "role"
     "on_comboBox_editTextChanged\0arg1\0"
     "on_comboBox_currentIndexChanged\0"
     "on_pushButton_7_clicked\0onLoginSuccessful\0"
-    "role"
+    "role\0user"
 };
 #undef QT_MOC_LITERAL
 
@@ -139,7 +140,7 @@ static const uint qt_meta_data_MainWindow[] = {
       29,    1,  192,    2, 0x08 /* Private */,
       31,    1,  195,    2, 0x08 /* Private */,
       32,    0,  198,    2, 0x08 /* Private */,
-      33,    1,  199,    2, 0x0a /* Public */,
+      33,    2,  199,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -170,7 +171,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::QString,   30,
     QMetaType::Void, QMetaType::QString,   30,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   34,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   34,   35,
 
        0        // eod
 };
@@ -209,7 +210,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 25: _t->on_comboBox_editTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 26: _t->on_comboBox_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 27: _t->on_pushButton_7_clicked(); break;
-        case 28: _t->onLoginSuccessful((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 28: _t->onLoginSuccessful((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
         default: ;
         }
     }

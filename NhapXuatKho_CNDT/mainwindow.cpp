@@ -55,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget_TK->setColumnWidth(1, 500);
 
     on_pushButton_22_clicked(); //load lịch sử xuất kho
+    ui->dateEdit_xk_ngay->setDisabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -979,6 +980,7 @@ void MainWindow::on_pushButton_15_clicked()//Xuất kho
         CapNhatBangTK();
         QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
         on_pushButton_21_clicked();
+        SelectAll();
     }
 }
 
@@ -1190,9 +1192,12 @@ void MainWindow::on_pushButton_7_clicked()  //QUẢN LÝ TÀI KHOẢN
     mQuanLy_TK->show();
 }
 
-void MainWindow::onLoginSuccessful(const QString &role)
+void MainWindow::onLoginSuccessful(const QString &role, const QString &user)
 {
     this->show();
+    ui->lineEdit_xk_tennguoi->setText(user);
+    ui->lineEdit_xk_tennguoi->setDisabled(true);
+
     if(role == "admin")
         QMessageBox::information(this, "Thông báo", "Truy cập dưới quyền Admin!");
     else if(role == "ql")

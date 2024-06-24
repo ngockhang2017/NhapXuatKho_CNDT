@@ -52,16 +52,19 @@ public:
     QGridLayout *gridLayout;
     QLabel *label_8;
     QLabel *label_6;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_3;
-    QPushButton *pushButton_4;
-    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_TenTK;
+    QPushButton *pushButton_Luu;
     QLabel *label_7;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *pushButton_CapNhat;
+    QPushButton *pushButton_XoaTK;
+    QPushButton *pushButton_BatDauThem;
     QLabel *label_9;
     QComboBox *comboBox;
+    QWidget *widget_6;
+    QHBoxLayout *horizontalLayout_3;
+    QLineEdit *lineEdit_MatKhau;
+    QPushButton *pushButton;
+    QComboBox *comboBox_QuyenTruyCap;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -171,45 +174,35 @@ public:
 
         gridLayout->addWidget(label_6, 1, 0, 1, 1);
 
-        lineEdit = new QLineEdit(widget_2);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit_TenTK = new QLineEdit(widget_2);
+        lineEdit_TenTK->setObjectName(QString::fromUtf8("lineEdit_TenTK"));
 
-        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
+        gridLayout->addWidget(lineEdit_TenTK, 1, 1, 1, 1);
 
-        lineEdit_3 = new QLineEdit(widget_2);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        pushButton_Luu = new QPushButton(widget_2);
+        pushButton_Luu->setObjectName(QString::fromUtf8("pushButton_Luu"));
 
-        gridLayout->addWidget(lineEdit_3, 3, 1, 1, 1);
-
-        pushButton_4 = new QPushButton(widget_2);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-
-        gridLayout->addWidget(pushButton_4, 5, 1, 1, 1);
-
-        lineEdit_2 = new QLineEdit(widget_2);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-
-        gridLayout->addWidget(lineEdit_2, 2, 1, 1, 1);
+        gridLayout->addWidget(pushButton_Luu, 5, 1, 1, 1);
 
         label_7 = new QLabel(widget_2);
         label_7->setObjectName(QString::fromUtf8("label_7"));
 
         gridLayout->addWidget(label_7, 2, 0, 1, 1);
 
-        pushButton = new QPushButton(widget_2);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton_CapNhat = new QPushButton(widget_2);
+        pushButton_CapNhat->setObjectName(QString::fromUtf8("pushButton_CapNhat"));
 
-        gridLayout->addWidget(pushButton, 4, 0, 1, 1);
+        gridLayout->addWidget(pushButton_CapNhat, 4, 0, 1, 1);
 
-        pushButton_2 = new QPushButton(widget_2);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_XoaTK = new QPushButton(widget_2);
+        pushButton_XoaTK->setObjectName(QString::fromUtf8("pushButton_XoaTK"));
 
-        gridLayout->addWidget(pushButton_2, 4, 1, 1, 1);
+        gridLayout->addWidget(pushButton_XoaTK, 4, 1, 1, 1);
 
-        pushButton_3 = new QPushButton(widget_2);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_BatDauThem = new QPushButton(widget_2);
+        pushButton_BatDauThem->setObjectName(QString::fromUtf8("pushButton_BatDauThem"));
 
-        gridLayout->addWidget(pushButton_3, 5, 0, 1, 1);
+        gridLayout->addWidget(pushButton_BatDauThem, 5, 0, 1, 1);
 
         label_9 = new QLabel(widget_2);
         label_9->setObjectName(QString::fromUtf8("label_9"));
@@ -223,6 +216,34 @@ public:
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
 
         gridLayout->addWidget(comboBox, 0, 1, 1, 1);
+
+        widget_6 = new QWidget(widget_2);
+        widget_6->setObjectName(QString::fromUtf8("widget_6"));
+        widget_6->setAutoFillBackground(false);
+        horizontalLayout_3 = new QHBoxLayout(widget_6);
+        horizontalLayout_3->setSpacing(0);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        lineEdit_MatKhau = new QLineEdit(widget_6);
+        lineEdit_MatKhau->setObjectName(QString::fromUtf8("lineEdit_MatKhau"));
+
+        horizontalLayout_3->addWidget(lineEdit_MatKhau);
+
+        pushButton = new QPushButton(widget_6);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        horizontalLayout_3->addWidget(pushButton);
+
+
+        gridLayout->addWidget(widget_6, 2, 1, 1, 1);
+
+        comboBox_QuyenTruyCap = new QComboBox(widget_2);
+        comboBox_QuyenTruyCap->addItem(QString());
+        comboBox_QuyenTruyCap->addItem(QString());
+        comboBox_QuyenTruyCap->addItem(QString());
+        comboBox_QuyenTruyCap->setObjectName(QString::fromUtf8("comboBox_QuyenTruyCap"));
+
+        gridLayout->addWidget(comboBox_QuyenTruyCap, 3, 1, 1, 1);
 
 
         horizontalLayout_2->addLayout(gridLayout);
@@ -242,7 +263,7 @@ public:
         QuanLy_TK->setCentralWidget(centralwidget);
         menubar = new QMenuBar(QuanLy_TK);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 984, 20));
+        menubar->setGeometry(QRect(0, 0, 984, 25));
         QuanLy_TK->setMenuBar(menubar);
         statusbar = new QStatusBar(QuanLy_TK);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -261,15 +282,20 @@ public:
         label_5->setText(QCoreApplication::translate("QuanLy_TK", "QU\341\272\242N L\303\235 T\303\200I KHO\341\272\242N \304\220\304\202NG NH\341\272\254P", nullptr));
         label_8->setText(QCoreApplication::translate("QuanLy_TK", "Quy\341\273\201n truy c\341\272\255p:", nullptr));
         label_6->setText(QCoreApplication::translate("QuanLy_TK", "T\303\252n t\303\240i kho\341\272\243n:", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("QuanLy_TK", "L\306\260u t\303\240i kho\341\272\243n m\341\273\233i", nullptr));
+        pushButton_Luu->setText(QCoreApplication::translate("QuanLy_TK", "L\306\260u t\303\240i kho\341\272\243n m\341\273\233i", nullptr));
         label_7->setText(QCoreApplication::translate("QuanLy_TK", "M\341\272\255t kh\341\272\251u:", nullptr));
-        pushButton->setText(QCoreApplication::translate("QuanLy_TK", "C\341\272\255p nh\341\272\255t th\303\264ng tin", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("QuanLy_TK", "X\303\263a t\303\240i kho\341\272\243n n\303\240y", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("QuanLy_TK", "B\341\272\257t \304\221\341\272\247u c\341\272\245p t\303\240i kho\341\272\243n m\341\273\233i", nullptr));
+        pushButton_CapNhat->setText(QCoreApplication::translate("QuanLy_TK", "C\341\272\255p nh\341\272\255t th\303\264ng tin", nullptr));
+        pushButton_XoaTK->setText(QCoreApplication::translate("QuanLy_TK", "X\303\263a t\303\240i kho\341\272\243n n\303\240y", nullptr));
+        pushButton_BatDauThem->setText(QCoreApplication::translate("QuanLy_TK", "B\341\272\257t \304\221\341\272\247u c\341\272\245p t\303\240i kho\341\272\243n m\341\273\233i", nullptr));
         label_9->setText(QCoreApplication::translate("QuanLy_TK", "L\341\273\215c:", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("QuanLy_TK", "Admin", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("QuanLy_TK", "Qu\341\272\243n l\303\275 kho", nullptr));
         comboBox->setItemText(2, QCoreApplication::translate("QuanLy_TK", "K\341\273\271 thu\341\272\255t vi\303\252n", nullptr));
+
+        pushButton->setText(QCoreApplication::translate("QuanLy_TK", "Xem", nullptr));
+        comboBox_QuyenTruyCap->setItemText(0, QCoreApplication::translate("QuanLy_TK", "Admin", nullptr));
+        comboBox_QuyenTruyCap->setItemText(1, QCoreApplication::translate("QuanLy_TK", "Qu\341\272\243n l\303\275 kho", nullptr));
+        comboBox_QuyenTruyCap->setItemText(2, QCoreApplication::translate("QuanLy_TK", "K\341\273\271 thu\341\272\255t vi\303\252n", nullptr));
 
     } // retranslateUi
 

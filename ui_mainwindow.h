@@ -510,6 +510,7 @@ public:
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         lineEdit_xk_tennguoi = new QLineEdit(groupBox_4);
         lineEdit_xk_tennguoi->setObjectName(QString::fromUtf8("lineEdit_xk_tennguoi"));
+        lineEdit_xk_tennguoi->setReadOnly(false);
 
         gridLayout_3->addWidget(lineEdit_xk_tennguoi, 0, 1, 1, 1);
 
@@ -849,7 +850,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

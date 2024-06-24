@@ -42,8 +42,8 @@ void Login::on_pushButton_clicked() // Login
 
         if (query.exec()) {
             if (query.next()) {
-                QString role = query.value(0).toString();
-                emit LoginSuccessful(role);
+                QString role = query.value(2).toString();
+                emit LoginSuccessful(role, username);
                 this->close();
             }
             else
