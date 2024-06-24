@@ -122,7 +122,7 @@ public:
     QGroupBox *groupBox;
     QHBoxLayout *horizontalLayout_10;
     QLabel *label_23;
-    QDateEdit *dateEdit;
+    QLineEdit *lineEdit_timlk_xuatkho;
     QGroupBox *groupBox_2;
     QHBoxLayout *horizontalLayout_11;
     QLabel *label_24;
@@ -155,7 +155,6 @@ public:
     QSpacerItem *horizontalSpacer_7;
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
-    QPushButton *pushButton_9;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -641,12 +640,10 @@ public:
 
         horizontalLayout_10->addWidget(label_23);
 
-        dateEdit = new QDateEdit(groupBox);
-        dateEdit->setObjectName(QString::fromUtf8("dateEdit"));
-        dateEdit->setFont(font5);
-        dateEdit->setDateTime(QDateTime(QDate(2023, 8, 31), QTime(0, 0, 0)));
+        lineEdit_timlk_xuatkho = new QLineEdit(groupBox);
+        lineEdit_timlk_xuatkho->setObjectName(QString::fromUtf8("lineEdit_timlk_xuatkho"));
 
-        horizontalLayout_10->addWidget(dateEdit);
+        horizontalLayout_10->addWidget(lineEdit_timlk_xuatkho);
 
 
         verticalLayout_9->addWidget(groupBox);
@@ -822,11 +819,6 @@ public:
 
         horizontalLayout_4->addWidget(pushButton_8);
 
-        pushButton_9 = new QPushButton(widget_6);
-        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
-
-        horizontalLayout_4->addWidget(pushButton_9);
-
 
         verticalLayout_3->addWidget(widget_6);
 
@@ -850,7 +842,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -886,14 +878,13 @@ public:
         label_21->setText(QCoreApplication::translate("MainWindow", "Ng\303\240y xu\341\272\245t kho:", nullptr));
         dateEdit_xk_ngay->setDisplayFormat(QCoreApplication::translate("MainWindow", "dd/MM/yyyy", nullptr));
         pushButton_15->setText(QCoreApplication::translate("MainWindow", "XU\341\272\244T", nullptr));
-        pushButton_16->setText(QCoreApplication::translate("MainWindow", "H\341\273\246Y", nullptr));
-        pushButton_21->setText(QCoreApplication::translate("MainWindow", "Export", nullptr));
+        pushButton_16->setText(QCoreApplication::translate("MainWindow", "X\303\223A", nullptr));
+        pushButton_21->setText(QCoreApplication::translate("MainWindow", "Export EXCEL", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Xu\341\272\245t kho", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "L\341\273\212CH S\341\273\254 XU\341\272\244T KHO", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u theo ng\303\240y", nullptr));
-        label_23->setText(QCoreApplication::translate("MainWindow", "Ch\341\273\215n ng\303\240y (ng\303\240y/th\303\241ng/n\304\203m):", nullptr));
-        dateEdit->setDisplayFormat(QCoreApplication::translate("MainWindow", "dd/MM/yyyy", nullptr));
-        groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u theo t\303\252n", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u theo t\303\252n Linh ki\341\273\207n", nullptr));
+        label_23->setText(QCoreApplication::translate("MainWindow", "Nh\341\272\255p t\303\252n:", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u theo t\303\252n ng\306\260\341\273\235i", nullptr));
         label_24->setText(QCoreApplication::translate("MainWindow", "Nh\341\272\255p t\303\252n:", nullptr));
         pushButton_22->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 m\341\273\233i nh\341\272\245t", nullptr));
         pushButton_18->setText(QCoreApplication::translate("MainWindow", "Xu\341\272\245t File", nullptr));
@@ -906,7 +897,6 @@ public:
         label_4->setText(QCoreApplication::translate("MainWindow", "L\341\273\215c trong kho:", nullptr));
         pushButton_7->setText(QCoreApplication::translate("MainWindow", "Qu\341\272\243n l\303\275 t\303\240i kho\341\272\243n", nullptr));
         pushButton_8->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 xu\341\272\245t kho", nullptr));
-        pushButton_9->setText(QCoreApplication::translate("MainWindow", "Xu\341\272\245t file Excel", nullptr));
     } // retranslateUi
 
 };

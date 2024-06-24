@@ -94,7 +94,7 @@ private slots:
 
     void on_pushButton_23_clicked();
 
-    void on_dateEdit_editingFinished();
+//    void on_dateEdit_editingFinished();
 
     void on_pushButton_19_clicked();
 
@@ -107,6 +107,12 @@ private slots:
     void on_pushButton_7_clicked();
 
     // MainWindow.h
+    void on_pushButton_16_clicked();
+
+    void on_lineEdit_timlk_xuatkho_editingFinished();
+
+    void on_pushButton_8_clicked();
+
 public slots:
     void onLoginSuccessful(const QString &role, const QString &user);
 
@@ -118,5 +124,6 @@ private:
     QStringList DsLoai_LK;
     Login *mLogin;
     QuanLy_TK *mQuanLy_TK;
+    int row_table_2_clicked;
 };
 #endif // MAINWINDOW_H
