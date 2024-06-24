@@ -213,6 +213,7 @@ public:
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
+        comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
 
         gridLayout->addWidget(comboBox, 0, 1, 1, 1);
@@ -291,6 +292,7 @@ public:
         comboBox->setItemText(0, QCoreApplication::translate("QuanLy_TK", "Admin", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("QuanLy_TK", "Qu\341\272\243n l\303\275 kho", nullptr));
         comboBox->setItemText(2, QCoreApplication::translate("QuanLy_TK", "K\341\273\271 thu\341\272\255t vi\303\252n", nullptr));
+        comboBox->setItemText(3, QCoreApplication::translate("QuanLy_TK", "-T\341\272\244T C\341\272\242-", nullptr));
 
         pushButton->setText(QCoreApplication::translate("QuanLy_TK", "Xem", nullptr));
         comboBox_QuyenTruyCap->setItemText(0, QCoreApplication::translate("QuanLy_TK", "Admin", nullptr));

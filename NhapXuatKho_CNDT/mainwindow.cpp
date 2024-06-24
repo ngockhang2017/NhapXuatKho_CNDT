@@ -1220,5 +1220,4 @@ void MainWindow::onLoginSuccessful(const QString &role, const QString &user)
         ui->pushButton_17->setDisabled(true);
         ui->pushButton_20->setDisabled(true);
     }
-
 }

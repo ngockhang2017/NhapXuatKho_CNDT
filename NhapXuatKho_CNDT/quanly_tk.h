@@ -44,6 +44,10 @@ private slots:
     void on_pushButton_Luu_clicked();
     void SectionDoubleClick(int row, int column);
 
+    void on_pushButton_CapNhat_clicked();
+
+    void on_pushButton_XoaTK_clicked();
+
 private:
     Ui::QuanLy_TK *ui;
     QString User;

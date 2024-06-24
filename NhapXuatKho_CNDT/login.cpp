@@ -36,15 +36,18 @@ void Login::on_pushButton_clicked() // Login
     {
 
         QSqlQuery query(db);
-        query.prepare("select * FROM TaiKhoan WHERE User == :user AND Pass == :pass");
-        query.bindValue(":user", username);
-        query.bindValue(":pass", password);
+//        query.prepare("select * FROM TaiKhoan WHERE User == :user AND Pass == :pass");
+         query.prepare("select * FROM TaiKhoan WHERE User == '"+username+"' AND Pass == '"+password+"'");
+//        query.bindValue(":user", username);
+//        query.bindValue(":pass", password);
 
         if (query.exec()) {
             if (query.next()) {
+
                 QString role = query.value(2).toString();
                 emit LoginSuccessful(role, username);
                 this->close();
+//                return;
             }
             else
             {

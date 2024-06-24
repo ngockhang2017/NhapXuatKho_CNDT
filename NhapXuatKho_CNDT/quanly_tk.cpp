@@ -122,6 +122,8 @@ void QuanLy_TK::on_comboBox_currentIndexChanged(const QString &arg1)
         Select("ql");
     else if(arg1 == "Kỹ thuật viên")
         Select("nvkt");
+    else if(arg1 == "-TẤT CẢ-")
+        LoadAll();
 }
 
 
@@ -199,6 +201,10 @@ void QuanLy_TK::on_pushButton_Luu_clicked() //Lưu tài khoản mới này
             this->db.close();
 
             LoadAll();
+            ui->pushButton_CapNhat->setDisabled(true);
+            ui->pushButton_XoaTK->setDisabled(true);
+            ui->pushButton_BatDauThem->setDisabled(false);
+            ui->pushButton_Luu->setDisabled(true);
         }
         else
         {
@@ -236,9 +242,111 @@ void QuanLy_TK::SectionDoubleClick(int row, int column)
                 ui->comboBox_QuyenTruyCap->setCurrentIndex(2);
         }
         this->db.close();
+
+        ui->pushButton_CapNhat->setDisabled(false);
+        ui->pushButton_XoaTK->setDisabled(false);
+        ui->pushButton_BatDauThem->setDisabled(false);
+        ui->pushButton_Luu->setDisabled(true);
+
+        ui->lineEdit_TenTK->setDisabled(true);//Tên tài khoản là không được đổi
     }
     else
     {
         QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
+    }
+}
+
+void QuanLy_TK::on_pushButton_CapNhat_clicked()  //Cập nhật thông tin tài khoản
+{
+    QString User = ui->lineEdit_TenTK->text();
+    QString Pass = ui->lineEdit_MatKhau->text();
+    QString Role = "";
+
+    int QuyenTruyCap = ui->comboBox_QuyenTruyCap->currentIndex();
+    if(QuyenTruyCap == 0)
+        Role = "admin";
+    else if(QuyenTruyCap == 1)
+        Role = "ql";
+    else if(QuyenTruyCap == 2)
+        Role = "nvkt";
+
+    if(User == "" || Pass == "" || Role == "")
+        QMessageBox::warning(this, "Thông báo", "Thông tin Tài khoản chưa được cung cấp đầy đủ, hãy thử lại!");
+    else
+    {
+        this->UpdateConnection();
+        if(this->DatabaseConnected)
+        {
+            QSqlQuery qry(this->db);
+            qry.prepare("UPDATE TaiKhoan SET Pass=:Pass, Role=:Role WHERE User=:User");
+
+            qry.bindValue(":User", User);
+            qry.bindValue(":Pass", Pass);
+            qry.bindValue(":Role", Role);
+
+            if(qry.exec())
+            {
+                QMessageBox::information(this, "Thông báo", "Cập nhật thông tin Tài khoản thành công!");
+                foreach(QLineEdit* le, findChildren<QLineEdit*>())
+                {
+                        le->clear();
+                }
+
+                LoadAll(); //cập nhật danh sách tài khoản
+
+                ui->pushButton_CapNhat->setDisabled(true);
+                ui->pushButton_XoaTK->setDisabled(true);
+                ui->pushButton_Luu->setDisabled(true);
+                ui->pushButton_BatDauThem->setDisabled(false);
+
+            }
+            else
+            {
+                QMessageBox::warning(this, "Thông báo", "Cập nhật thông tin không thành công. Xin hãy thử lại!");
+            }
+            this->db.close();
+        }
+        else
+        {
+            QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
+        }
+    }
+}
+
+void QuanLy_TK::on_pushButton_XoaTK_clicked()  //Xóa tài khoản này
+{
+    QString User = ui->lineEdit_TenTK->text();
+
+    if(User == "")
+        QMessageBox::warning(this, "Thông báo", "Không tìm thấy tên đăng nhập tài khoản, hãy thử lại!");
+    else
+    {
+        UpdateConnection();
+        if(this->DatabaseConnected)
+        {
+            QSqlQuery qry(this->db);
+            qry.prepare("DELETE FROM TaiKhoan WHERE User=:User");
+            qry.bindValue(":User", User);
+
+            if(qry.exec())
+            {
+                QMessageBox::information(this, "Thông báo", "Xóa Tài khoản thành công!");
+                foreach(QLineEdit* le, findChildren<QLineEdit*>())
+                {
+                        le->clear();
+                }
+
+                LoadAll();
+                ui->pushButton_CapNhat->setDisabled(true);
+                ui->pushButton_XoaTK->setDisabled(true);
+                ui->pushButton_Luu->setDisabled(true);
+                ui->pushButton_BatDauThem->setDisabled(false);
+            }
+            this->db.close();
+        }
+        else
+        {
+            QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
+        }
     }
 }
