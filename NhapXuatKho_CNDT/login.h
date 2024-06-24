@@ -22,8 +22,7 @@ public:
 public:
     QSqlDatabase db;
     bool DatabaseConnected;
-    QString path_db = "C:\\Users\\ngock\\OneDrive\\Documents\\GitHub\\NhapXuatKho_CNDT\\quanlykho";
-
+    QString path_db = "D:\\PM_QLK\\quanlykho";
     void UpdateConnection();
 
 private slots:
