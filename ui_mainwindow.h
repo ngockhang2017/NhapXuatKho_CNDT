@@ -145,6 +145,7 @@ public:
     QLabel *label_3;
     QLineEdit *lineEdit_timkiem;
     QPushButton *pushButton;
+    QPushButton *pushButton_ThemTrucTiep;
     QSpacerItem *horizontalSpacer_2;
     QLabel *label_4;
     QComboBox *comboBox;
@@ -768,6 +769,14 @@ public:
 
         horizontalLayout_2->addWidget(pushButton);
 
+        pushButton_ThemTrucTiep = new QPushButton(widget_8);
+        pushButton_ThemTrucTiep->setObjectName(QString::fromUtf8("pushButton_ThemTrucTiep"));
+        pushButton_ThemTrucTiep->setFont(font8);
+        pushButton_ThemTrucTiep->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"background-color: rgb(131, 185, 255);"));
+
+        horizontalLayout_2->addWidget(pushButton_ThemTrucTiep);
+
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
@@ -842,7 +851,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -894,6 +903,7 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QCoreApplication::translate("MainWindow", "Th\341\273\221ng k\303\252 kho", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u linh ki\341\273\207n:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "T\303\254m", nullptr));
+        pushButton_ThemTrucTiep->setText(QCoreApplication::translate("MainWindow", "Th\303\252m v\303\240o gi\341\273\217", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "L\341\273\215c trong kho:", nullptr));
         pushButton_7->setText(QCoreApplication::translate("MainWindow", "Qu\341\272\243n l\303\275 t\303\240i kho\341\272\243n", nullptr));
         pushButton_8->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 xu\341\272\245t kho", nullptr));

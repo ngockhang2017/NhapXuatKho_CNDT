@@ -22,6 +22,16 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+struct MotLK
+{
+    QString Loai_LK;
+    QString Ten_LK;
+    QString Ma_LK;
+    QString Donvi_LK;
+    QString Soluong_LK;
+    QString Ghichu_LK;
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -42,6 +52,7 @@ public:
     void Seclect(QString LoaiLK);
     void SelectAll();
     QList<QString> LoadTenLK();
+    QList<QString> LoadTenLK_timkiem(QString loaiLK);
     QList<QString> LoadTenNguoiXuatKho();
     void exportToExcel(QTableWidget *tableWidget, const QString &fileName);
     int SLhienCoCuaMotLK = 0;
@@ -113,6 +124,18 @@ private slots:
 
     void on_pushButton_8_clicked();
 
+    void on_lineEdit_loaiLK_editingFinished();
+
+    void on_lineEdit_TenLK_editingFinished();
+
+    void on_lineEdit_MaLK_editingFinished();
+
+    void on_lineEdit_DV_editingFinished();
+
+    void on_lineEdit_SoLuong_editingFinished();
+
+    void on_pushButton_ThemTrucTiep_clicked();
+
 public slots:
     void onLoginSuccessful(const QString &role, const QString &user);
 
@@ -120,10 +143,12 @@ private:
     Ui::MainWindow *ui;
     SL_XuatKho *m_SL_XuatKho;
 
-    QStringList wordList, wordList_xk;
+    QStringList wordList, wordList_xk, wordList_timkiem;
     QStringList DsLoai_LK;
     Login *mLogin;
     QuanLy_TK *mQuanLy_TK;
     int row_table_2_clicked;
+
+    MotLK LK_timthay;
 };
 #endif // MAINWINDOW_H
