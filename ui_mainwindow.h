@@ -79,6 +79,16 @@ public:
     QPushButton *pushButton_14;
     QPushButton *pushButton_17;
     QPushButton *pushButton_20;
+    QWidget *tab_5;
+    QVBoxLayout *verticalLayout_11;
+    QLabel *label_7;
+    QTableWidget *tableWidget_nhapthem;
+    QWidget *widget_7;
+    QHBoxLayout *horizontalLayout_3;
+    QSpacerItem *horizontalSpacer_4;
+    QPushButton *pushButton_xacnhapnhapthem;
+    QPushButton *pushButton_xoalknhapthem;
+    QPushButton *pushButton_huynhapthem;
     QWidget *tab_2;
     QHBoxLayout *horizontalLayout_6;
     QWidget *widget_9;
@@ -146,6 +156,7 @@ public:
     QLineEdit *lineEdit_timkiem;
     QPushButton *pushButton;
     QPushButton *pushButton_ThemTrucTiep;
+    QPushButton *pushButton_nhapthemvaokho;
     QSpacerItem *horizontalSpacer_2;
     QLabel *label_4;
     QComboBox *comboBox;
@@ -163,7 +174,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1148, 767);
+        MainWindow->resize(1260, 767);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -404,6 +415,51 @@ public:
         verticalLayout_5->setStretch(0, 5);
         verticalLayout_5->setStretch(1, 1);
         tabWidget->addTab(tab, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QString::fromUtf8("tab_5"));
+        verticalLayout_11 = new QVBoxLayout(tab_5);
+        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
+        label_7 = new QLabel(tab_5);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_11->addWidget(label_7);
+
+        tableWidget_nhapthem = new QTableWidget(tab_5);
+        tableWidget_nhapthem->setObjectName(QString::fromUtf8("tableWidget_nhapthem"));
+
+        verticalLayout_11->addWidget(tableWidget_nhapthem);
+
+        widget_7 = new QWidget(tab_5);
+        widget_7->setObjectName(QString::fromUtf8("widget_7"));
+        horizontalLayout_3 = new QHBoxLayout(widget_7);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_4);
+
+        pushButton_xacnhapnhapthem = new QPushButton(widget_7);
+        pushButton_xacnhapnhapthem->setObjectName(QString::fromUtf8("pushButton_xacnhapnhapthem"));
+
+        horizontalLayout_3->addWidget(pushButton_xacnhapnhapthem);
+
+        pushButton_xoalknhapthem = new QPushButton(widget_7);
+        pushButton_xoalknhapthem->setObjectName(QString::fromUtf8("pushButton_xoalknhapthem"));
+
+        horizontalLayout_3->addWidget(pushButton_xoalknhapthem);
+
+        pushButton_huynhapthem = new QPushButton(widget_7);
+        pushButton_huynhapthem->setObjectName(QString::fromUtf8("pushButton_huynhapthem"));
+
+        horizontalLayout_3->addWidget(pushButton_huynhapthem);
+
+
+        verticalLayout_11->addWidget(widget_7);
+
+        verticalLayout_11->setStretch(0, 1);
+        verticalLayout_11->setStretch(1, 8);
+        verticalLayout_11->setStretch(2, 1);
+        tabWidget->addTab(tab_5, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         horizontalLayout_6 = new QHBoxLayout(tab_2);
@@ -777,6 +833,14 @@ public:
 
         horizontalLayout_2->addWidget(pushButton_ThemTrucTiep);
 
+        pushButton_nhapthemvaokho = new QPushButton(widget_8);
+        pushButton_nhapthemvaokho->setObjectName(QString::fromUtf8("pushButton_nhapthemvaokho"));
+        pushButton_nhapthemvaokho->setFont(font8);
+        pushButton_nhapthemvaokho->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 99, 122);\n"
+"color: rgb(0, 0, 0);"));
+
+        horizontalLayout_2->addWidget(pushButton_nhapthemvaokho);
+
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
@@ -843,7 +907,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1148, 25));
+        menubar->setGeometry(QRect(0, 0, 1260, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -851,7 +915,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -876,13 +940,18 @@ public:
         pushButton_17->setText(QCoreApplication::translate("MainWindow", "C\341\272\255p nh\341\272\255t linh ki\341\273\207n", nullptr));
         pushButton_20->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y s\341\273\255a linh ki\341\273\207n", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Th\303\264ng tin linh ki\341\273\207n", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "NH\341\272\254P TH\303\212M V\303\200O KHO LINH KI\341\273\206N S\341\272\264N C\303\223", nullptr));
+        pushButton_xacnhapnhapthem->setText(QCoreApplication::translate("MainWindow", "X\303\241c nh\341\272\255n", nullptr));
+        pushButton_xoalknhapthem->setText(QCoreApplication::translate("MainWindow", "X\303\263a", nullptr));
+        pushButton_huynhapthem->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QCoreApplication::translate("MainWindow", "Nh\341\272\255p th\303\252m v\303\240o kho", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "KI\341\273\202M TRA GI\341\273\216 TR\306\257\341\273\232C KHI XU\341\272\244T KHO", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("MainWindow", "X\303\241c nh\341\272\255n s\341\273\221 l\306\260\341\273\243ng xu\341\272\245t kho", nullptr));
         label_18->setText(QCoreApplication::translate("MainWindow", "S\341\273\221 l\306\260\341\273\243ng(Enter):", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "T\303\252n:", nullptr));
         label_22->setText(QCoreApplication::translate("MainWindow", "M\303\243 LK:", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("MainWindow", "Th\303\264ng tin xu\341\272\245t kho", nullptr));
-        label_20->setText(QCoreApplication::translate("MainWindow", "Ghi ch\303\272:", nullptr));
+        label_20->setText(QCoreApplication::translate("MainWindow", "L\303\275 do:", nullptr));
         label_19->setText(QCoreApplication::translate("MainWindow", "T\303\252n ng\306\260\341\273\235i xu\341\272\245t kho:", nullptr));
         label_21->setText(QCoreApplication::translate("MainWindow", "Ng\303\240y xu\341\272\245t kho:", nullptr));
         dateEdit_xk_ngay->setDisplayFormat(QCoreApplication::translate("MainWindow", "dd/MM/yyyy", nullptr));
@@ -904,6 +973,7 @@ public:
         label_3->setText(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u linh ki\341\273\207n:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "T\303\254m", nullptr));
         pushButton_ThemTrucTiep->setText(QCoreApplication::translate("MainWindow", "Th\303\252m v\303\240o gi\341\273\217", nullptr));
+        pushButton_nhapthemvaokho->setText(QCoreApplication::translate("MainWindow", "Nh\341\272\255p th\303\252m v\303\240o kho", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "L\341\273\215c trong kho:", nullptr));
         pushButton_7->setText(QCoreApplication::translate("MainWindow", "Qu\341\272\243n l\303\275 t\303\240i kho\341\272\243n", nullptr));
         pushButton_8->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 xu\341\272\245t kho", nullptr));

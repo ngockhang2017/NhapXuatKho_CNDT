@@ -58,6 +58,7 @@ public:
     int SLhienCoCuaMotLK = 0;
     void CapNhatSoLuongLK(QString MaLK, int SoLuongConLai);
     void CapNhatLSXuatKho(QString TenNguoiXK, QString TenLK, QString MaLK, QString SoLuongXK, QString GhiChu, QString NgayXK);
+     void CapNhatLSNhapKho(QString TenNguoiNK, QString TenLK, QString MaLK, QString SoLuongNK, QString NgayNK);
     void CapNhatDS_loaiLK();
     void CapNhatBangTK();
 
@@ -135,6 +136,14 @@ private slots:
     void on_lineEdit_SoLuong_editingFinished();
 
     void on_pushButton_ThemTrucTiep_clicked();
+
+    void on_tableWidget_2_itemChanged(QTableWidgetItem *item);
+
+    void on_pushButton_nhapthemvaokho_clicked();
+
+
+
+    void on_pushButton_xacnhapnhapthem_clicked();
 
 public slots:
     void onLoginSuccessful(const QString &role, const QString &user);
