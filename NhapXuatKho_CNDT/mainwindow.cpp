@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->tableWidget, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(SectionDoubleClick(int, int)));
     connect(ui->tableWidget_2, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(SectionDoubleClick_2(int, int)));
+    connect(ui->tableWidget_nhapthem, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(SectionDoubleClick_3(int, int)));
     ui->tableWidget->setColumnWidth(0, 450);
     ui->tableWidget->setColumnWidth(1, 200);
     ui->tableWidget->setColumnWidth(2, 150);
@@ -190,6 +191,10 @@ void MainWindow::SectionDoubleClick_2(int row, int column)  //NHẬN SIGNAL DOUB
     }
 }
 
+void MainWindow::SectionDoubleClick_3(int row, int column)  //NHẬN SIGNAL DOUBLE CLICK VÀ ĐIỀN DỮ LIỆU VÀ CÁC LINE EDIT
+{
+    this->row_table_nhapthem_clicked = row;
+}
 
 void MainWindow::UpdateConnection()
 {
@@ -1410,14 +1415,15 @@ void MainWindow::onLoginSuccessful(const QString &role, const QString &user)
         QMessageBox::information(this, "Thông báo", "Truy cập dưới quyền Quản lý kho!");
         ui->pushButton_7->setDisabled(true); //không thể truy cập vào Quản lý tài khoản
         ui->pushButton_8->setDisabled(true);//không thể xem Lịch sử xuất kho
-        ui->tabWidget->setTabEnabled(2, false); //không thể xem Lịch sử xuất kho
+        ui->tabWidget->setTabEnabled(3, false); //không thể xem Lịch sử xuất kho
     }
     else if(role == "nvkt")
     {
-        QMessageBox::information(this, "Thông báo", "Truy cập dưới quyền Nhân viên kỹ thuật!");
+        QMessageBox::information(this, "Thông báo", "Truy cập dưới quyền Người dùng!");
         ui->pushButton_7->setDisabled(true); //không thể truy cập vào Quản lý tài khoản
         ui->pushButton_8->setDisabled(true);//không thể xem Lịch sử xuất kho
-        ui->tabWidget->setTabEnabled(2, false); //không thể xem Lịch sử xuất kho
+        ui->tabWidget->setTabEnabled(3, false); //không thể xem Lịch sử xuất kho
+          ui->tabWidget->setTabEnabled(1, false); //không thể xem Lịch sử xuất kho
         ui->pushButton_11->setDisabled(true);
         ui->pushButton_12->setDisabled(true);
         ui->pushButton_13->setDisabled(true);
@@ -1429,7 +1435,11 @@ void MainWindow::onLoginSuccessful(const QString &role, const QString &user)
 
 void MainWindow::on_pushButton_16_clicked()//xóa linh kiện trong giỏ
 {
-    ui->tableWidget_2->removeRow(this->row_table_2_clicked);
+    if(row_table_2_clicked != -1)
+    {
+        ui->tableWidget_2->removeRow(this->row_table_2_clicked);
+        row_table_2_clicked = -1;
+    }
 }
 
 void MainWindow::on_lineEdit_timlk_xuatkho_editingFinished()//tìm kiếm lịch xử theo Tên Linh kiện
@@ -1619,10 +1629,11 @@ void MainWindow::on_pushButton_xacnhapnhapthem_clicked()//Xác nhận nhập th�
 
         int SLMoi = SLHienTai + SLXuatKho;
         CapNhatSoLuongLK(MaLK, SLMoi);
-          CapNhatLSNhapKho(ui->lineEdit_xk_tennguoi->text(), ui->tableWidget_nhapthem->item(row, 0)->text(), ui->tableWidget_nhapthem->item(row, 1)->text(), ui->tableWidget_nhapthem->item(row, 5)->text(), QDate::currentDate().toString());
+        CapNhatLSNhapKho(ui->lineEdit_xk_tennguoi->text(), ui->tableWidget_nhapthem->item(row, 0)->text(), ui->tableWidget_nhapthem->item(row, 1)->text(), ui->tableWidget_nhapthem->item(row, 5)->text(), QDate::currentDate().toString());
     }
     CapNhatBangTK();
     QMessageBox::warning(this, "Thông báo", "Nhập kho thành công!");
+    ui->tableWidget_nhapthem->clear();
     SelectAll();
 }
 
@@ -1634,7 +1645,7 @@ void MainWindow::CapNhatLSNhapKho(QString TenNguoiNK, QString TenLK, QString MaL
         QSqlQuery qry(this->db);
         qry.prepare("INSERT INTO LSNhapKho ( TenNguoiNK, TenLK, MaLK, SoLuongNK, "
                     "NgayNK) "
-                    "VALUES (:TenNguoiNK, :TenLK, :MaLK, :SoLuongXK,"
+                    "VALUES (:TenNguoiNK, :TenLK, :MaLK, :SoLuongNK,"
                     ":NgayNK)");
 
         qry.bindValue(":TenNguoiNK", TenNguoiNK);
@@ -1656,4 +1667,19 @@ void MainWindow::CapNhatLSNhapKho(QString TenNguoiNK, QString TenLK, QString MaL
     {
         QMessageBox::warning(this, "Warning", "Kết nối cơ sở dữ liệu không thành công. Vui lòng thử lại!");
     }
+}
+
+void MainWindow::on_pushButton_xoalknhapthem_clicked()///xóa linh kiện trong danh sách nhập thêm
+{
+    if(this->row_table_nhapthem_clicked != -1)
+    {
+        ui->tableWidget_nhapthem->removeRow(this->row_table_nhapthem_clicked);
+        this->row_table_nhapthem_clicked = -1;
+    }
+}
+
+void MainWindow::on_pushButton_huynhapthem_clicked()//hủy nhập thêm vào kho
+{
+    QMessageBox::warning(this, "Thông báo", "Hủy nhập thêm linh kiện có sẵn vào kho!");
+    ui->tableWidget_nhapthem->clear();
 }

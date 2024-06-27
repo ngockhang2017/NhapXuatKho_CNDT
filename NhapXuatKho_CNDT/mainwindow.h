@@ -43,8 +43,8 @@ public:
 public:
     QSqlDatabase db;
     bool DatabaseConnected;
-    //    QString path_db = "C:/Users/ngock/OneDrive/Documents/GitHub/NhapXuatKho_CNDT/quanlykho";
-    QString path_db = "D:\\PM_QLK\\quanlykho";
+        QString path_db = "D:\\PM_QLK\\DATABASE\\QLK_DATABASE";
+//    QString path_db = "C:\\Users\\ngock\\OneDrive\\Documents\\GitHub\\NhapXuatKho_CNDT\\NhapXuatKho_CNDT\\DATABASE\\QLK_DATABASE";
 
     QString ID_DoubleCLick;
 
@@ -75,6 +75,7 @@ private slots:
 
     void SectionDoubleClick(int row, int column);
     void SectionDoubleClick_2(int row, int column);
+    void SectionDoubleClick_3(int row, int column);
 
     void on_pushButton_14_clicked();
 
@@ -141,9 +142,11 @@ private slots:
 
     void on_pushButton_nhapthemvaokho_clicked();
 
-
-
     void on_pushButton_xacnhapnhapthem_clicked();
+
+    void on_pushButton_xoalknhapthem_clicked();
+
+    void on_pushButton_huynhapthem_clicked();
 
 public slots:
     void onLoginSuccessful(const QString &role, const QString &user);
@@ -156,7 +159,7 @@ private:
     QStringList DsLoai_LK;
     Login *mLogin;
     QuanLy_TK *mQuanLy_TK;
-    int row_table_2_clicked;
+    int row_table_2_clicked = -1, row_table_nhapthem_clicked = -1;
 
     MotLK LK_timthay;
 };
