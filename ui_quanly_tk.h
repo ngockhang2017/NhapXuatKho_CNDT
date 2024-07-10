@@ -290,14 +290,14 @@ public:
         pushButton_BatDauThem->setText(QCoreApplication::translate("QuanLy_TK", "B\341\272\257t \304\221\341\272\247u c\341\272\245p t\303\240i kho\341\272\243n m\341\273\233i", nullptr));
         label_9->setText(QCoreApplication::translate("QuanLy_TK", "L\341\273\215c:", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("QuanLy_TK", "Admin", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("QuanLy_TK", "Qu\341\272\243n l\303\275 kho", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("QuanLy_TK", "K\341\273\271 thu\341\272\255t vi\303\252n", nullptr));
+        comboBox->setItemText(1, QCoreApplication::translate("QuanLy_TK", "Manager", nullptr));
+        comboBox->setItemText(2, QCoreApplication::translate("QuanLy_TK", "User", nullptr));
         comboBox->setItemText(3, QCoreApplication::translate("QuanLy_TK", "-T\341\272\244T C\341\272\242-", nullptr));
 
         pushButton->setText(QCoreApplication::translate("QuanLy_TK", "Xem", nullptr));
         comboBox_QuyenTruyCap->setItemText(0, QCoreApplication::translate("QuanLy_TK", "Admin", nullptr));
-        comboBox_QuyenTruyCap->setItemText(1, QCoreApplication::translate("QuanLy_TK", "Qu\341\272\243n l\303\275 kho", nullptr));
-        comboBox_QuyenTruyCap->setItemText(2, QCoreApplication::translate("QuanLy_TK", "K\341\273\271 thu\341\272\255t vi\303\252n", nullptr));
+        comboBox_QuyenTruyCap->setItemText(1, QCoreApplication::translate("QuanLy_TK", "Manager", nullptr));
+        comboBox_QuyenTruyCap->setItemText(2, QCoreApplication::translate("QuanLy_TK", "User", nullptr));
 
     } // retranslateUi
 

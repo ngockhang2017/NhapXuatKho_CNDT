@@ -20,19 +20,22 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     quanly_tk.cpp \
-    sl_xuatkho.cpp
+    sl_xuatkho.cpp \
+    tk_canhan.cpp
 
 HEADERS += \
     login.h \
     mainwindow.h \
     quanly_tk.h \
-    sl_xuatkho.h
+    sl_xuatkho.h \
+    tk_canhan.h
 
 FORMS += \
     login.ui \
     mainwindow.ui \
     quanly_tk.ui \
-    sl_xuatkho.ui
+    sl_xuatkho.ui \
+    tk_canhan.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

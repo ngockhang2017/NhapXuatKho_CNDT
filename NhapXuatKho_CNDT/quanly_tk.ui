@@ -204,12 +204,12 @@
               </item>
               <item>
                <property name="text">
-                <string>Quản lý kho</string>
+                <string>Manager</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Kỹ thuật viên</string>
+                <string>User</string>
                </property>
               </item>
               <item>
@@ -262,12 +262,12 @@
               </item>
               <item>
                <property name="text">
-                <string>Quản lý kho</string>
+                <string>Manager</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Kỹ thuật viên</string>
+                <string>User</string>
                </property>
               </item>
              </widget>

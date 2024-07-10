@@ -19,6 +19,7 @@ QuanLy_TK::QuanLy_TK(QWidget *parent) :
     ui->pushButton_XoaTK->setDisabled(true);
 
     connect(ui->tableWidget, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(SectionDoubleClick(int, int)));
+     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 }
 
@@ -118,10 +119,10 @@ void QuanLy_TK::on_comboBox_currentIndexChanged(const QString &arg1)
 
     if(arg1 == "Admin")
         Select("admin");
-    else if(arg1 == "Quản lý kho")
-        Select("ql");
-    else if(arg1 == "Kỹ thuật viên")
-        Select("nvkt");
+    else if(arg1 == "Manager")
+        Select("manager");
+    else if(arg1 == "User")
+        Select("user");
     else if(arg1 == "-TẤT CẢ-")
         LoadAll();
 }
@@ -167,9 +168,9 @@ void QuanLy_TK::on_pushButton_Luu_clicked() //Lưu tài khoản mới này
     if(QuyenTruyCap == 0)
         Role = "admin";
     else if(QuyenTruyCap == 1)
-        Role = "ql";
+        Role = "manager";
     else if(QuyenTruyCap == 2)
-        Role = "nvkt";
+        Role = "user";
 
     if(User == "" || Pass == "" || Role == "")
         QMessageBox::warning(this, "Thông báo", "Thông tin Tài khoản chưa được cung cấp đầy đủ, hãy thử lại!");
@@ -236,9 +237,9 @@ void QuanLy_TK::SectionDoubleClick(int row, int column)
 
             if(QuyenTruyCap == "admin")
                 ui->comboBox_QuyenTruyCap->setCurrentIndex(0);
-            else if (QuyenTruyCap == "ql")
+            else if (QuyenTruyCap == "manager")
                 ui->comboBox_QuyenTruyCap->setCurrentIndex(1);
-            else if(QuyenTruyCap == "nvkt")
+            else if(QuyenTruyCap == "user")
                 ui->comboBox_QuyenTruyCap->setCurrentIndex(2);
         }
         this->db.close();
@@ -266,9 +267,9 @@ void QuanLy_TK::on_pushButton_CapNhat_clicked()  //Cập nhật thông tin tài 
     if(QuyenTruyCap == 0)
         Role = "admin";
     else if(QuyenTruyCap == 1)
-        Role = "ql";
+        Role = "manager";
     else if(QuyenTruyCap == 2)
-        Role = "nvkt";
+        Role = "user";
 
     if(User == "" || Pass == "" || Role == "")
         QMessageBox::warning(this, "Thông báo", "Thông tin Tài khoản chưa được cung cấp đầy đủ, hãy thử lại!");

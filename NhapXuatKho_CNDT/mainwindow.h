@@ -17,6 +17,7 @@
 #include<QDateTime>
 #include<login.h>
 #include<quanly_tk.h>
+#include<tk_canhan.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -61,6 +62,7 @@ public:
      void CapNhatLSNhapKho(QString TenNguoiNK, QString TenLK, QString MaLK, QString SoLuongNK, QString NgayNK);
     void CapNhatDS_loaiLK();
     void CapNhatBangTK();
+    void CapNhatBangLK();
 
 private slots:
     void on_pushButton_2_clicked();
@@ -124,8 +126,6 @@ private slots:
 
     void on_lineEdit_timlk_xuatkho_editingFinished();
 
-    void on_pushButton_8_clicked();
-
     void on_lineEdit_loaiLK_editingFinished();
 
     void on_lineEdit_TenLK_editingFinished();
@@ -136,7 +136,7 @@ private slots:
 
     void on_lineEdit_SoLuong_editingFinished();
 
-    void on_pushButton_ThemTrucTiep_clicked();
+//    void on_pushButton_ThemTrucTiep_clicked();
 
     void on_tableWidget_2_itemChanged(QTableWidgetItem *item);
 
@@ -147,6 +147,8 @@ private slots:
     void on_pushButton_xoalknhapthem_clicked();
 
     void on_pushButton_huynhapthem_clicked();
+
+    void on_pushButton_TK_canhanh_clicked();
 
 public slots:
     void onLoginSuccessful(const QString &role, const QString &user);
@@ -162,5 +164,7 @@ private:
     int row_table_2_clicked = -1, row_table_nhapthem_clicked = -1;
 
     MotLK LK_timthay;
+
+    TK_CaNhan *mTK_CaNhan;
 };
 #endif // MAINWINDOW_H

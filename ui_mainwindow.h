@@ -75,10 +75,11 @@ public:
     QPushButton *pushButton_12;
     QPushButton *pushButton_11;
     QSpacerItem *horizontalSpacer_21;
-    QPushButton *pushButton_13;
     QPushButton *pushButton_14;
     QPushButton *pushButton_17;
     QPushButton *pushButton_20;
+    QSpacerItem *horizontalSpacer_5;
+    QPushButton *pushButton_13;
     QWidget *tab_5;
     QVBoxLayout *verticalLayout_11;
     QLabel *label_7;
@@ -166,7 +167,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_7;
     QPushButton *pushButton_7;
-    QPushButton *pushButton_8;
+    QPushButton *pushButton_TK_canhanh;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -360,8 +361,7 @@ public:
         pushButton_10 = new QPushButton(widget_10);
         pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
         pushButton_10->setFont(font2);
-        pushButton_10->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 188, 0);\n"
-"color: rgb(255, 255, 255);"));
+        pushButton_10->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_5->addWidget(pushButton_10);
 
@@ -377,19 +377,13 @@ public:
         pushButton_11 = new QPushButton(widget_10);
         pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
         pushButton_11->setFont(font2);
-        pushButton_11->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 181, 0);\n"
-"color: rgb(255, 255, 255);"));
+        pushButton_11->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_5->addWidget(pushButton_11);
 
         horizontalSpacer_21 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_5->addItem(horizontalSpacer_21);
-
-        pushButton_13 = new QPushButton(widget_10);
-        pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
-
-        horizontalLayout_5->addWidget(pushButton_13);
 
         pushButton_14 = new QPushButton(widget_10);
         pushButton_14->setObjectName(QString::fromUtf8("pushButton_14"));
@@ -399,8 +393,7 @@ public:
         pushButton_17 = new QPushButton(widget_10);
         pushButton_17->setObjectName(QString::fromUtf8("pushButton_17"));
         pushButton_17->setFont(font2);
-        pushButton_17->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 181, 0);\n"
-"color: rgb(255, 255, 255);"));
+        pushButton_17->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_5->addWidget(pushButton_17);
 
@@ -408,6 +401,15 @@ public:
         pushButton_20->setObjectName(QString::fromUtf8("pushButton_20"));
 
         horizontalLayout_5->addWidget(pushButton_20);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer_5);
+
+        pushButton_13 = new QPushButton(widget_10);
+        pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
+
+        horizontalLayout_5->addWidget(pushButton_13);
 
 
         verticalLayout_5->addWidget(widget_10);
@@ -884,13 +886,15 @@ public:
 
         pushButton_7 = new QPushButton(widget_6);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        pushButton_7->setStyleSheet(QString::fromUtf8("color: rgb(28, 157, 0);"));
 
         horizontalLayout_4->addWidget(pushButton_7);
 
-        pushButton_8 = new QPushButton(widget_6);
-        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_TK_canhanh = new QPushButton(widget_6);
+        pushButton_TK_canhanh->setObjectName(QString::fromUtf8("pushButton_TK_canhanh"));
+        pushButton_TK_canhanh->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 148);"));
 
-        horizontalLayout_4->addWidget(pushButton_8);
+        horizontalLayout_4->addWidget(pushButton_TK_canhanh);
 
 
         verticalLayout_3->addWidget(widget_6);
@@ -915,7 +919,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -935,10 +939,10 @@ public:
         pushButton_10->setText(QCoreApplication::translate("MainWindow", "Th\303\252m v\303\240o gi\341\273\217", nullptr));
         pushButton_12->setText(QCoreApplication::translate("MainWindow", "B\341\272\257t \304\221\341\272\247u th\303\252m m\341\273\233i", nullptr));
         pushButton_11->setText(QCoreApplication::translate("MainWindow", "L\306\260u", nullptr));
-        pushButton_13->setText(QCoreApplication::translate("MainWindow", "X\303\263a linh ki\341\273\207n", nullptr));
         pushButton_14->setText(QCoreApplication::translate("MainWindow", "B\341\272\257t \304\221\341\272\247u s\341\273\255a th\303\264ng tin linh ki\341\273\207n", nullptr));
         pushButton_17->setText(QCoreApplication::translate("MainWindow", "C\341\272\255p nh\341\272\255t linh ki\341\273\207n", nullptr));
         pushButton_20->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y s\341\273\255a linh ki\341\273\207n", nullptr));
+        pushButton_13->setText(QCoreApplication::translate("MainWindow", "X\303\263a linh ki\341\273\207n", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Th\303\264ng tin linh ki\341\273\207n", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "NH\341\272\254P TH\303\212M V\303\200O KHO LINH KI\341\273\206N S\341\272\264N C\303\223", nullptr));
         pushButton_xacnhapnhapthem->setText(QCoreApplication::translate("MainWindow", "X\303\241c nh\341\272\255n", nullptr));
@@ -975,8 +979,8 @@ public:
         pushButton_ThemTrucTiep->setText(QCoreApplication::translate("MainWindow", "Th\303\252m v\303\240o gi\341\273\217", nullptr));
         pushButton_nhapthemvaokho->setText(QCoreApplication::translate("MainWindow", "Nh\341\272\255p th\303\252m v\303\240o kho", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "L\341\273\215c trong kho:", nullptr));
-        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Qu\341\272\243n l\303\275 t\303\240i kho\341\272\243n", nullptr));
-        pushButton_8->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 xu\341\272\245t kho", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Qu\341\272\243n l\303\275 t\303\240i kho\341\272\243n (Admin)", nullptr));
+        pushButton_TK_canhanh->setText(QCoreApplication::translate("MainWindow", "T\303\240i kho\341\272\243n c\303\241 nh\303\242n", nullptr));
     } // retranslateUi
 
 };

@@ -153,7 +153,7 @@
           </font>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -316,8 +316,7 @@
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(0, 188, 0);
-color: rgb(255, 255, 255);</string>
+                 <string notr="true"/>
                 </property>
                 <property name="text">
                  <string>Thêm vào giỏ</string>
@@ -354,8 +353,7 @@ color: rgb(255, 255, 255);</string>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(0, 181, 0);
-color: rgb(255, 255, 255);</string>
+                 <string notr="true"/>
                 </property>
                 <property name="text">
                  <string>Lưu</string>
@@ -376,13 +374,6 @@ color: rgb(255, 255, 255);</string>
                </spacer>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_13">
-                <property name="text">
-                 <string>Xóa linh kiện</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QPushButton" name="pushButton_14">
                 <property name="text">
                  <string>Bắt đầu sửa thông tin linh kiện</string>
@@ -399,8 +390,7 @@ color: rgb(255, 255, 255);</string>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(0, 181, 0);
-color: rgb(255, 255, 255);</string>
+                 <string notr="true"/>
                 </property>
                 <property name="text">
                  <string>Cập nhật linh kiện</string>
@@ -411,6 +401,26 @@ color: rgb(255, 255, 255);</string>
                <widget class="QPushButton" name="pushButton_20">
                 <property name="text">
                  <string>Hủy sửa linh kiện</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_13">
+                <property name="text">
+                 <string>Xóa linh kiện</string>
                 </property>
                </widget>
               </item>
@@ -1232,15 +1242,21 @@ color: rgb(0, 0, 0);</string>
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_7">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(28, 157, 0);</string>
+            </property>
             <property name="text">
-             <string>Quản lý tài khoản</string>
+             <string>Quản lý tài khoản (Admin)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_8">
+           <widget class="QPushButton" name="pushButton_TK_canhanh">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 148);</string>
+            </property>
             <property name="text">
-             <string>Lịch sử xuất kho</string>
+             <string>Tài khoản cá nhân</string>
             </property>
            </widget>
           </item>
