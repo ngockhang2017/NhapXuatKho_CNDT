@@ -153,7 +153,7 @@
           </font>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -339,7 +339,7 @@
               <item>
                <widget class="QPushButton" name="pushButton_12">
                 <property name="text">
-                 <string>Bắt đầu thêm mới</string>
+                 <string>Thêm mới</string>
                 </property>
                </widget>
               </item>
@@ -357,6 +357,13 @@
                 </property>
                 <property name="text">
                  <string>Lưu</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_huythem">
+                <property name="text">
+                 <string>Hủy thêm</string>
                 </property>
                </widget>
               </item>
@@ -436,6 +443,13 @@
           <layout class="QVBoxLayout" name="verticalLayout_11" stretch="1,8,1">
            <item>
             <widget class="QLabel" name="label_7">
+             <property name="font">
+              <font>
+               <family>Palatino Linotype</family>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>NHẬP THÊM VÀO KHO LINH KIỆN SẴN CÓ</string>
              </property>
@@ -532,9 +546,9 @@
                 <property name="font">
                  <font>
                   <family>Palatino Linotype</family>
-                  <pointsize>9</pointsize>
-                  <weight>50</weight>
-                  <bold>false</bold>
+                  <pointsize>10</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -549,8 +563,8 @@
                <widget class="QTableWidget" name="tableWidget_2">
                 <property name="font">
                  <font>
-                  <weight>75</weight>
-                  <bold>true</bold>
+                  <weight>50</weight>
+                  <bold>false</bold>
                  </font>
                 </property>
                </widget>
@@ -811,7 +825,7 @@ color: rgb(255, 255, 255);</string>
           <attribute name="title">
            <string>Lịch sử xuất kho</string>
           </attribute>
-          <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="5,3">
+          <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="5,2">
            <property name="spacing">
             <number>9</number>
            </property>
@@ -850,8 +864,8 @@ color: rgb(255, 255, 255);</string>
                 <property name="font">
                  <font>
                   <family>Palatino Linotype</family>
-                  <weight>50</weight>
-                  <bold>false</bold>
+                  <weight>75</weight>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -997,8 +1011,123 @@ color: rgb(255, 255, 255);</string>
                    </property>
                   </widget>
                  </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_6">
+          <attribute name="title">
+           <string>Lịch sử nhập kho</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="5,3">
+           <item>
+            <widget class="QWidget" name="widget_17" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_12" stretch="1,5">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="font">
+                 <font>
+                  <family>Palatino Linotype</family>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>LỊCH SỬ NHẬP KHO</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="tableWidget_lsnhapkho"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_18" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_13" stretch="2,2,1">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QGroupBox" name="groupBox_5">
+                <property name="font">
+                 <font>
+                  <family>Palatino Linotype</family>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="title">
+                 <string>Tra cứu theo tên Linh kiện</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_15">
                  <item>
-                  <widget class="QPushButton" name="pushButton_19">
+                  <widget class="QLabel" name="label_25">
+                   <property name="text">
+                    <string>Nhập tên:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_timlk_nhapkho"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_6">
+                <property name="font">
+                 <font>
+                  <family>Palatino Linotype</family>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="title">
+                 <string>Tra cứu theo tên người</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_16">
+                 <item>
+                  <widget class="QLabel" name="label_26">
+                   <property name="text">
+                    <string>Nhập tên:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_timnguoi_nhapkho">
                    <property name="font">
                     <font>
                      <family>Palatino Linotype</family>
@@ -1006,8 +1135,62 @@ color: rgb(255, 255, 255);</string>
                      <bold>true</bold>
                     </font>
                    </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_19" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_17">
+                 <item>
+                  <widget class="QPushButton" name="pushButton_lichsunhapkho">
+                   <property name="font">
+                    <font>
+                     <family>Palatino Linotype</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(85, 247, 255);
+color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
-                    <string>Hủy</string>
+                    <string>Lịch sử mới nhất</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_23">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_xuatfile_lsnhapkho">
+                   <property name="font">
+                    <font>
+                     <family>Palatino Linotype</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 181, 0);
+color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>Xuất File</string>
                    </property>
                   </widget>
                  </item>
@@ -1026,6 +1209,13 @@ color: rgb(255, 255, 255);</string>
           <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,8">
            <item>
             <widget class="QLabel" name="label_6">
+             <property name="font">
+              <font>
+               <family>Palatino Linotype</family>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>THỐNG KÊ SỐ LƯỢNG CÒN LẠI TRONG KHO</string>
              </property>

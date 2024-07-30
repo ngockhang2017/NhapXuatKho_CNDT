@@ -44,8 +44,8 @@ public:
 public:
     QSqlDatabase db;
     bool DatabaseConnected;
-        QString path_db = "D:\\PM_QLK\\DATABASE\\QLK_DATABASE";
-//    QString path_db = "C:\\Users\\ngock\\OneDrive\\Documents\\GitHub\\NhapXuatKho_CNDT\\NhapXuatKho_CNDT\\DATABASE\\QLK_DATABASE";
+//        QString path_db = "D:\\PM_QLK\\DATABASE\\QLK_DATABASE";
+    QString path_db = "C:\\Users\\ngock\\OneDrive\\Documents\\GitHub\\NhapXuatKho_CNDT\\NhapXuatKho_CNDT\\DATABASE\\QLK_DATABASE";
 
     QString ID_DoubleCLick;
 
@@ -55,6 +55,8 @@ public:
     QList<QString> LoadTenLK();
     QList<QString> LoadTenLK_timkiem(QString loaiLK);
     QList<QString> LoadTenNguoiXuatKho();
+    QList<QString> LoadTenNguoiNhapKho();
+
     void exportToExcel(QTableWidget *tableWidget, const QString &fileName);
     int SLhienCoCuaMotLK = 0;
     void CapNhatSoLuongLK(QString MaLK, int SoLuongConLai);
@@ -111,8 +113,6 @@ private slots:
 
 //    void on_dateEdit_editingFinished();
 
-    void on_pushButton_19_clicked();
-
     void on_pushButton_18_clicked();
 
     void on_comboBox_editTextChanged(const QString &arg1);
@@ -150,21 +150,29 @@ private slots:
 
     void on_pushButton_TK_canhanh_clicked();
 
+    void on_pushButton_lichsunhapkho_clicked();
+
+    void on_lineEdit_timnguoi_nhapkho_editingFinished();
+
+    void on_lineEdit_timlk_nhapkho_editingFinished();
+
+    void on_pushButton_xuatfile_lsnhapkho_clicked();
+
+    void on_pushButton_huythem_clicked();
+
 public slots:
     void onLoginSuccessful(const QString &role, const QString &user);
 
 private:
     Ui::MainWindow *ui;
     SL_XuatKho *m_SL_XuatKho;
-
-    QStringList wordList, wordList_xk, wordList_timkiem;
+    QStringList wordList, wordList_xk, wordList_timkiem, wordList_nk;
     QStringList DsLoai_LK;
     Login *mLogin;
     QuanLy_TK *mQuanLy_TK;
     int row_table_2_clicked = -1, row_table_nhapthem_clicked = -1;
 
     MotLK LK_timthay;
-
     TK_CaNhan *mTK_CaNhan;
 };
 #endif // MAINWINDOW_H

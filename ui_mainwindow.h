@@ -74,6 +74,7 @@ public:
     QSpacerItem *horizontalSpacer_8;
     QPushButton *pushButton_12;
     QPushButton *pushButton_11;
+    QPushButton *pushButton_huythem;
     QSpacerItem *horizontalSpacer_21;
     QPushButton *pushButton_14;
     QPushButton *pushButton_17;
@@ -143,7 +144,27 @@ public:
     QPushButton *pushButton_22;
     QSpacerItem *horizontalSpacer_22;
     QPushButton *pushButton_18;
-    QPushButton *pushButton_19;
+    QWidget *tab_6;
+    QHBoxLayout *horizontalLayout_18;
+    QWidget *widget_17;
+    QVBoxLayout *verticalLayout_12;
+    QLabel *label_8;
+    QTableWidget *tableWidget_lsnhapkho;
+    QWidget *widget_18;
+    QVBoxLayout *verticalLayout_13;
+    QGroupBox *groupBox_5;
+    QHBoxLayout *horizontalLayout_15;
+    QLabel *label_25;
+    QLineEdit *lineEdit_timlk_nhapkho;
+    QGroupBox *groupBox_6;
+    QHBoxLayout *horizontalLayout_16;
+    QLabel *label_26;
+    QLineEdit *lineEdit_timnguoi_nhapkho;
+    QWidget *widget_19;
+    QHBoxLayout *horizontalLayout_17;
+    QPushButton *pushButton_lichsunhapkho;
+    QSpacerItem *horizontalSpacer_23;
+    QPushButton *pushButton_xuatfile_lsnhapkho;
     QWidget *tab_4;
     QVBoxLayout *verticalLayout_10;
     QLabel *label_6;
@@ -381,6 +402,11 @@ public:
 
         horizontalLayout_5->addWidget(pushButton_11);
 
+        pushButton_huythem = new QPushButton(widget_10);
+        pushButton_huythem->setObjectName(QString::fromUtf8("pushButton_huythem"));
+
+        horizontalLayout_5->addWidget(pushButton_huythem);
+
         horizontalSpacer_21 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_5->addItem(horizontalSpacer_21);
@@ -423,6 +449,11 @@ public:
         verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
         label_7 = new QLabel(tab_5);
         label_7->setObjectName(QString::fromUtf8("label_7"));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Palatino Linotype"));
+        font3.setBold(true);
+        font3.setWeight(75);
+        label_7->setFont(font3);
         label_7->setAlignment(Qt::AlignCenter);
 
         verticalLayout_11->addWidget(label_7);
@@ -476,22 +507,22 @@ public:
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
         label_16 = new QLabel(widget_9);
         label_16->setObjectName(QString::fromUtf8("label_16"));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Palatino Linotype"));
-        font3.setPointSize(9);
-        font3.setBold(false);
-        font3.setWeight(50);
-        label_16->setFont(font3);
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("Palatino Linotype"));
+        font4.setPointSize(10);
+        font4.setBold(true);
+        font4.setWeight(75);
+        label_16->setFont(font4);
         label_16->setAlignment(Qt::AlignCenter);
 
         verticalLayout_6->addWidget(label_16);
 
         tableWidget_2 = new QTableWidget(widget_9);
         tableWidget_2->setObjectName(QString::fromUtf8("tableWidget_2"));
-        QFont font4;
-        font4.setBold(true);
-        font4.setWeight(75);
-        tableWidget_2->setFont(font4);
+        QFont font5;
+        font5.setBold(false);
+        font5.setWeight(50);
+        tableWidget_2->setFont(font5);
 
         verticalLayout_6->addWidget(tableWidget_2);
 
@@ -508,11 +539,7 @@ public:
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
         groupBox_3 = new QGroupBox(widget_11);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        QFont font5;
-        font5.setFamily(QString::fromUtf8("Palatino Linotype"));
-        font5.setBold(true);
-        font5.setWeight(75);
-        groupBox_3->setFont(font5);
+        groupBox_3->setFont(font3);
         horizontalLayout_13 = new QHBoxLayout(groupBox_3);
         horizontalLayout_13->setSpacing(0);
         horizontalLayout_13->setObjectName(QString::fromUtf8("horizontalLayout_13"));
@@ -558,7 +585,7 @@ public:
 
         groupBox_4 = new QGroupBox(widget_11);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setFont(font5);
+        groupBox_4->setFont(font3);
         horizontalLayout_14 = new QHBoxLayout(groupBox_4);
         horizontalLayout_14->setSpacing(0);
         horizontalLayout_14->setObjectName(QString::fromUtf8("horizontalLayout_14"));
@@ -616,12 +643,7 @@ public:
 
         pushButton_15 = new QPushButton(widget_12);
         pushButton_15->setObjectName(QString::fromUtf8("pushButton_15"));
-        QFont font6;
-        font6.setFamily(QString::fromUtf8("Palatino Linotype"));
-        font6.setPointSize(10);
-        font6.setBold(true);
-        font6.setWeight(75);
-        pushButton_15->setFont(font6);
+        pushButton_15->setFont(font4);
         pushButton_15->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 181, 0);\n"
 "color: rgb(255, 255, 255);"));
 
@@ -629,13 +651,13 @@ public:
 
         pushButton_16 = new QPushButton(widget_12);
         pushButton_16->setObjectName(QString::fromUtf8("pushButton_16"));
-        pushButton_16->setFont(font5);
+        pushButton_16->setFont(font3);
 
         horizontalLayout_7->addWidget(pushButton_16);
 
         pushButton_21 = new QPushButton(widget_12);
         pushButton_21->setObjectName(QString::fromUtf8("pushButton_21"));
-        pushButton_21->setFont(font5);
+        pushButton_21->setFont(font3);
 
         horizontalLayout_7->addWidget(pushButton_21);
 
@@ -665,11 +687,7 @@ public:
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
         label_5 = new QLabel(widget_14);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("Palatino Linotype"));
-        font7.setBold(false);
-        font7.setWeight(50);
-        label_5->setFont(font7);
+        label_5->setFont(font3);
         label_5->setAlignment(Qt::AlignCenter);
 
         verticalLayout_8->addWidget(label_5);
@@ -691,7 +709,11 @@ public:
         verticalLayout_9->setContentsMargins(0, 0, 0, 0);
         groupBox = new QGroupBox(widget_15);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setFont(font7);
+        QFont font6;
+        font6.setFamily(QString::fromUtf8("Palatino Linotype"));
+        font6.setBold(false);
+        font6.setWeight(50);
+        groupBox->setFont(font6);
         horizontalLayout_10 = new QHBoxLayout(groupBox);
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
         label_23 = new QLabel(groupBox);
@@ -709,7 +731,7 @@ public:
 
         groupBox_2 = new QGroupBox(widget_15);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setFont(font7);
+        groupBox_2->setFont(font6);
         horizontalLayout_11 = new QHBoxLayout(groupBox_2);
         horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
         label_24 = new QLabel(groupBox_2);
@@ -719,7 +741,7 @@ public:
 
         lineEdit_timnguoi_xk = new QLineEdit(groupBox_2);
         lineEdit_timnguoi_xk->setObjectName(QString::fromUtf8("lineEdit_timnguoi_xk"));
-        lineEdit_timnguoi_xk->setFont(font5);
+        lineEdit_timnguoi_xk->setFont(font3);
 
         horizontalLayout_11->addWidget(lineEdit_timnguoi_xk);
 
@@ -732,7 +754,7 @@ public:
         horizontalLayout_12->setObjectName(QString::fromUtf8("horizontalLayout_12"));
         pushButton_22 = new QPushButton(widget_16);
         pushButton_22->setObjectName(QString::fromUtf8("pushButton_22"));
-        pushButton_22->setFont(font6);
+        pushButton_22->setFont(font4);
         pushButton_22->setStyleSheet(QString::fromUtf8("background-color: rgb(85, 247, 255);\n"
 "color: rgb(0, 0, 0);"));
 
@@ -744,17 +766,11 @@ public:
 
         pushButton_18 = new QPushButton(widget_16);
         pushButton_18->setObjectName(QString::fromUtf8("pushButton_18"));
-        pushButton_18->setFont(font6);
+        pushButton_18->setFont(font4);
         pushButton_18->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 181, 0);\n"
 "color: rgb(255, 255, 255);"));
 
         horizontalLayout_12->addWidget(pushButton_18);
-
-        pushButton_19 = new QPushButton(widget_16);
-        pushButton_19->setObjectName(QString::fromUtf8("pushButton_19"));
-        pushButton_19->setFont(font5);
-
-        horizontalLayout_12->addWidget(pushButton_19);
 
 
         verticalLayout_9->addWidget(widget_16);
@@ -766,14 +782,120 @@ public:
         horizontalLayout_9->addWidget(widget_15);
 
         horizontalLayout_9->setStretch(0, 5);
-        horizontalLayout_9->setStretch(1, 3);
+        horizontalLayout_9->setStretch(1, 2);
         tabWidget->addTab(tab_3, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QString::fromUtf8("tab_6"));
+        horizontalLayout_18 = new QHBoxLayout(tab_6);
+        horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
+        widget_17 = new QWidget(tab_6);
+        widget_17->setObjectName(QString::fromUtf8("widget_17"));
+        verticalLayout_12 = new QVBoxLayout(widget_17);
+        verticalLayout_12->setSpacing(0);
+        verticalLayout_12->setObjectName(QString::fromUtf8("verticalLayout_12"));
+        verticalLayout_12->setContentsMargins(0, 0, 0, 0);
+        label_8 = new QLabel(widget_17);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setFont(font3);
+        label_8->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_12->addWidget(label_8);
+
+        tableWidget_lsnhapkho = new QTableWidget(widget_17);
+        tableWidget_lsnhapkho->setObjectName(QString::fromUtf8("tableWidget_lsnhapkho"));
+
+        verticalLayout_12->addWidget(tableWidget_lsnhapkho);
+
+        verticalLayout_12->setStretch(0, 1);
+        verticalLayout_12->setStretch(1, 5);
+
+        horizontalLayout_18->addWidget(widget_17);
+
+        widget_18 = new QWidget(tab_6);
+        widget_18->setObjectName(QString::fromUtf8("widget_18"));
+        verticalLayout_13 = new QVBoxLayout(widget_18);
+        verticalLayout_13->setObjectName(QString::fromUtf8("verticalLayout_13"));
+        verticalLayout_13->setContentsMargins(0, 0, 0, 0);
+        groupBox_5 = new QGroupBox(widget_18);
+        groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
+        groupBox_5->setFont(font6);
+        horizontalLayout_15 = new QHBoxLayout(groupBox_5);
+        horizontalLayout_15->setObjectName(QString::fromUtf8("horizontalLayout_15"));
+        label_25 = new QLabel(groupBox_5);
+        label_25->setObjectName(QString::fromUtf8("label_25"));
+
+        horizontalLayout_15->addWidget(label_25);
+
+        lineEdit_timlk_nhapkho = new QLineEdit(groupBox_5);
+        lineEdit_timlk_nhapkho->setObjectName(QString::fromUtf8("lineEdit_timlk_nhapkho"));
+
+        horizontalLayout_15->addWidget(lineEdit_timlk_nhapkho);
+
+
+        verticalLayout_13->addWidget(groupBox_5);
+
+        groupBox_6 = new QGroupBox(widget_18);
+        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
+        groupBox_6->setFont(font6);
+        horizontalLayout_16 = new QHBoxLayout(groupBox_6);
+        horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
+        label_26 = new QLabel(groupBox_6);
+        label_26->setObjectName(QString::fromUtf8("label_26"));
+
+        horizontalLayout_16->addWidget(label_26);
+
+        lineEdit_timnguoi_nhapkho = new QLineEdit(groupBox_6);
+        lineEdit_timnguoi_nhapkho->setObjectName(QString::fromUtf8("lineEdit_timnguoi_nhapkho"));
+        lineEdit_timnguoi_nhapkho->setFont(font3);
+
+        horizontalLayout_16->addWidget(lineEdit_timnguoi_nhapkho);
+
+
+        verticalLayout_13->addWidget(groupBox_6);
+
+        widget_19 = new QWidget(widget_18);
+        widget_19->setObjectName(QString::fromUtf8("widget_19"));
+        horizontalLayout_17 = new QHBoxLayout(widget_19);
+        horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
+        pushButton_lichsunhapkho = new QPushButton(widget_19);
+        pushButton_lichsunhapkho->setObjectName(QString::fromUtf8("pushButton_lichsunhapkho"));
+        pushButton_lichsunhapkho->setFont(font4);
+        pushButton_lichsunhapkho->setStyleSheet(QString::fromUtf8("background-color: rgb(85, 247, 255);\n"
+"color: rgb(0, 0, 0);"));
+
+        horizontalLayout_17->addWidget(pushButton_lichsunhapkho);
+
+        horizontalSpacer_23 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_17->addItem(horizontalSpacer_23);
+
+        pushButton_xuatfile_lsnhapkho = new QPushButton(widget_19);
+        pushButton_xuatfile_lsnhapkho->setObjectName(QString::fromUtf8("pushButton_xuatfile_lsnhapkho"));
+        pushButton_xuatfile_lsnhapkho->setFont(font4);
+        pushButton_xuatfile_lsnhapkho->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 181, 0);\n"
+"color: rgb(255, 255, 255);"));
+
+        horizontalLayout_17->addWidget(pushButton_xuatfile_lsnhapkho);
+
+
+        verticalLayout_13->addWidget(widget_19);
+
+        verticalLayout_13->setStretch(0, 2);
+        verticalLayout_13->setStretch(1, 2);
+        verticalLayout_13->setStretch(2, 1);
+
+        horizontalLayout_18->addWidget(widget_18);
+
+        horizontalLayout_18->setStretch(0, 5);
+        horizontalLayout_18->setStretch(1, 3);
+        tabWidget->addTab(tab_6, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
         verticalLayout_10 = new QVBoxLayout(tab_4);
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
         label_6 = new QLabel(tab_4);
         label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setFont(font3);
         label_6->setAlignment(Qt::AlignCenter);
 
         verticalLayout_10->addWidget(label_6);
@@ -805,16 +927,16 @@ public:
 
         label_3 = new QLabel(widget_8);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font6);
+        label_3->setFont(font4);
 
         horizontalLayout_2->addWidget(label_3);
 
         lineEdit_timkiem = new QLineEdit(widget_8);
         lineEdit_timkiem->setObjectName(QString::fromUtf8("lineEdit_timkiem"));
         lineEdit_timkiem->setMinimumSize(QSize(500, 0));
-        QFont font8;
-        font8.setPointSize(10);
-        lineEdit_timkiem->setFont(font8);
+        QFont font7;
+        font7.setPointSize(10);
+        lineEdit_timkiem->setFont(font7);
 
         horizontalLayout_2->addWidget(lineEdit_timkiem);
 
@@ -829,7 +951,7 @@ public:
 
         pushButton_ThemTrucTiep = new QPushButton(widget_8);
         pushButton_ThemTrucTiep->setObjectName(QString::fromUtf8("pushButton_ThemTrucTiep"));
-        pushButton_ThemTrucTiep->setFont(font8);
+        pushButton_ThemTrucTiep->setFont(font7);
         pushButton_ThemTrucTiep->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: rgb(131, 185, 255);"));
 
@@ -837,7 +959,7 @@ public:
 
         pushButton_nhapthemvaokho = new QPushButton(widget_8);
         pushButton_nhapthemvaokho->setObjectName(QString::fromUtf8("pushButton_nhapthemvaokho"));
-        pushButton_nhapthemvaokho->setFont(font8);
+        pushButton_nhapthemvaokho->setFont(font7);
         pushButton_nhapthemvaokho->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 99, 122);\n"
 "color: rgb(0, 0, 0);"));
 
@@ -849,7 +971,7 @@ public:
 
         label_4 = new QLabel(widget_8);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setFont(font6);
+        label_4->setFont(font4);
 
         horizontalLayout_2->addWidget(label_4);
 
@@ -919,7 +1041,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -937,8 +1059,9 @@ public:
         label_11->setText(QCoreApplication::translate("MainWindow", "Lo\341\272\241i linh ki\341\273\207n:", nullptr));
         label_15->setText(QCoreApplication::translate("MainWindow", "Ghi ch\303\272:", nullptr));
         pushButton_10->setText(QCoreApplication::translate("MainWindow", "Th\303\252m v\303\240o gi\341\273\217", nullptr));
-        pushButton_12->setText(QCoreApplication::translate("MainWindow", "B\341\272\257t \304\221\341\272\247u th\303\252m m\341\273\233i", nullptr));
+        pushButton_12->setText(QCoreApplication::translate("MainWindow", "Th\303\252m m\341\273\233i", nullptr));
         pushButton_11->setText(QCoreApplication::translate("MainWindow", "L\306\260u", nullptr));
+        pushButton_huythem->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y th\303\252m", nullptr));
         pushButton_14->setText(QCoreApplication::translate("MainWindow", "B\341\272\257t \304\221\341\272\247u s\341\273\255a th\303\264ng tin linh ki\341\273\207n", nullptr));
         pushButton_17->setText(QCoreApplication::translate("MainWindow", "C\341\272\255p nh\341\272\255t linh ki\341\273\207n", nullptr));
         pushButton_20->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y s\341\273\255a linh ki\341\273\207n", nullptr));
@@ -970,8 +1093,15 @@ public:
         label_24->setText(QCoreApplication::translate("MainWindow", "Nh\341\272\255p t\303\252n:", nullptr));
         pushButton_22->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 m\341\273\233i nh\341\272\245t", nullptr));
         pushButton_18->setText(QCoreApplication::translate("MainWindow", "Xu\341\272\245t File", nullptr));
-        pushButton_19->setText(QCoreApplication::translate("MainWindow", "H\341\273\247y", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 xu\341\272\245t kho", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "L\341\273\212CH S\341\273\254 NH\341\272\254P KHO", nullptr));
+        groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u theo t\303\252n Linh ki\341\273\207n", nullptr));
+        label_25->setText(QCoreApplication::translate("MainWindow", "Nh\341\272\255p t\303\252n:", nullptr));
+        groupBox_6->setTitle(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u theo t\303\252n ng\306\260\341\273\235i", nullptr));
+        label_26->setText(QCoreApplication::translate("MainWindow", "Nh\341\272\255p t\303\252n:", nullptr));
+        pushButton_lichsunhapkho->setText(QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 m\341\273\233i nh\341\272\245t", nullptr));
+        pushButton_xuatfile_lsnhapkho->setText(QCoreApplication::translate("MainWindow", "Xu\341\272\245t File", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QCoreApplication::translate("MainWindow", "L\341\273\213ch s\341\273\255 nh\341\272\255p kho", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "TH\341\273\220NG K\303\212 S\341\273\220 L\306\257\341\273\242NG C\303\222N L\341\272\240I TRONG KHO", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QCoreApplication::translate("MainWindow", "Th\341\273\221ng k\303\252 kho", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Tra c\341\273\251u linh ki\341\273\207n:", nullptr));
