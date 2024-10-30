@@ -22,12 +22,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->setColumnWidth(4, 150);
     ui->tableWidget->setColumnWidth(5, 300);
 
-    ui->tableWidget_2->setColumnWidth(0, 500);
-    ui->tableWidget_2->setColumnWidth(1, 200);
-    ui->tableWidget_2->setColumnWidth(2, 150);
+    ui->tableWidget_2->setColumnWidth(0, 300);
+    ui->tableWidget_2->setColumnWidth(1, 150);
+    ui->tableWidget_2->setColumnWidth(2, 100);
     ui->tableWidget_2->setColumnWidth(3, 150);
-    ui->tableWidget_2->setColumnWidth(4, 150);
+    ui->tableWidget_2->setColumnWidth(4, 100);
     ui->tableWidget_2->setColumnWidth(5, 150);
+
+    ui->tableWidget_lsnhapkho->setColumnWidth(0, 300);
+    ui->tableWidget_lsnhapkho->setColumnWidth(1, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(2, 200);
+    ui->tableWidget_lsnhapkho->setColumnWidth(3, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(4, 150);
+    ui->tableWidget_lsnhapkho->setColumnWidth(5, 130);
 
     //bảng giỏ linh kiện
     ui->tableWidget_2->setColumnCount(6);
@@ -106,6 +113,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_14->setDisabled(true);  //sửa lk này
     ui->pushButton_17->setDisabled(true);//cập nhật
     ui->pushButton_20->setDisabled(true); //hủy sửa
+    ui->pushButton_huythem->setDisabled(true); //hủy sửa
+
+    ui->groupBox_3->setHidden(true);
 }
 
 MainWindow::~MainWindow()
@@ -205,11 +215,11 @@ void MainWindow::SectionDoubleClick(int row, int column)  //NHẬN SIGNAL DOUBLE
         else if(ui->tabWidget->currentIndex() == 2) //THEM VAO GIO XUAT KHO
         {
 
-            ui->tableWidget_2->setColumnWidth(0, 500);
-            ui->tableWidget_2->setColumnWidth(1, 200);
-            ui->tableWidget_2->setColumnWidth(2, 150);
+            ui->tableWidget_2->setColumnWidth(0, 300);
+            ui->tableWidget_2->setColumnWidth(1, 150);
+            ui->tableWidget_2->setColumnWidth(2, 100);
             ui->tableWidget_2->setColumnWidth(3, 150);
-            ui->tableWidget_2->setColumnWidth(4, 150);
+            ui->tableWidget_2->setColumnWidth(4, 100);
             ui->tableWidget_2->setColumnWidth(5, 150);
 
             int row = ui->tableWidget_2->rowCount();
@@ -301,6 +311,7 @@ void MainWindow::Seclect(QString LoaiLK)
         if(this->DatabaseConnected)
         {
             ui->tableWidget->clear();
+            ui->tableWidget->setRowCount(1);
 
             QSqlQuery query(db);
             query.prepare("select * from LinhKien where LoaiLK == '"+LoaiLK +"'");
@@ -347,6 +358,7 @@ void MainWindow::Seclect(QString LoaiLK)
         if(this->DatabaseConnected)
         {
             ui->tableWidget->clear();
+            ui->tableWidget->setRowCount(1);
 
             QSqlQuery query(db);
             query.prepare("select * from LinhKien");
@@ -398,6 +410,7 @@ void MainWindow::SelectAll()
     if(this->DatabaseConnected)
     {
         ui->tableWidget->clear();
+        ui->tableWidget->setRowCount(1);
         QSqlQuery query(db);
         query.prepare("SELECT * FROM LinhKien");
         query.exec();
@@ -443,30 +456,35 @@ void MainWindow::SelectAll()
 void MainWindow::on_pushButton_2_clicked()//trở
 {
     ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(1);
     Seclect("RES");
 }
 
 void MainWindow::on_pushButton_3_clicked()//tụ
 {
     ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(1);
     Seclect("CAP");
 }
 
 void MainWindow::on_pushButton_4_clicked()//ic
 {
     ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(1);
     Seclect("IC");
 }
 
 void MainWindow::on_pushButton_5_clicked()//jack
 {
     ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(1);
     Seclect("JACK");
 }
 
 void MainWindow::on_pushButton_6_clicked()//khác
 {
     ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(1);
     UpdateConnection();
 
     if(this->DatabaseConnected)
@@ -734,6 +752,14 @@ void MainWindow::on_pushButton_12_clicked()  //bắt đầu thêm mới linh ki�
             le->setDisabled(false);
         }
     }
+    ui->pushButton_11->setDisabled(false); //lưu
+    ui->pushButton_12->setDisabled(true); //bắt đầu thêm
+    ui->pushButton_huythem->setDisabled(false); //hủy thêm
+    ui->pushButton_13->setDisabled(true); //xóa lk này
+    ui->pushButton_14->setDisabled(true);  //sửa lk này
+    ui->pushButton_17->setDisabled(true);//cập nhật
+    ui->pushButton_20->setDisabled(true); //hủy sửa
+
     ui->lineEdit_loaiLK->setFocus();
 }
 
@@ -745,11 +771,11 @@ void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
     }
     else
     {
-        ui->tableWidget_2->setColumnWidth(0, 500);
-        ui->tableWidget_2->setColumnWidth(1, 200);
-        ui->tableWidget_2->setColumnWidth(2, 150);
+        ui->tableWidget_2->setColumnWidth(0, 300);
+        ui->tableWidget_2->setColumnWidth(1, 150);
+        ui->tableWidget_2->setColumnWidth(2, 100);
         ui->tableWidget_2->setColumnWidth(3, 150);
-        ui->tableWidget_2->setColumnWidth(4, 150);
+        ui->tableWidget_2->setColumnWidth(4, 100);
         ui->tableWidget_2->setColumnWidth(5, 150);
 
         int row = ui->tableWidget_2->rowCount();
@@ -786,6 +812,8 @@ void MainWindow::on_pushButton_10_clicked()///thêm vào giỏ
         }
     }
 }
+
+
 
 void MainWindow::on_pushButton_11_clicked()  //Lưu linh kiện mới
 {
@@ -978,6 +1006,7 @@ void MainWindow::on_pushButton_clicked()//tìm kiếm
         if(this->DatabaseConnected)
         {
             ui->tableWidget->clear();
+            ui->tableWidget->setRowCount(1);
 
             QSqlQuery query(db);
             query.prepare("select * from LinhKien where TenLK LIKE '%"+TenLK +"%'");
@@ -1035,6 +1064,7 @@ void MainWindow::on_pushButton_clicked()//tìm kiếm
         if(this->DatabaseConnected)
         {
             ui->tableWidget->clear();
+            ui->tableWidget->setRowCount(1);
 
             QSqlQuery query(db);
             query.prepare("select * from LinhKien where TenLK LIKE '%"+TenLK +"%' and LoaiLK == '"+LoaiLK+"'");
@@ -1190,6 +1220,7 @@ void MainWindow::CapNhatDS_loaiLK()
     if(this->DatabaseConnected)
     {
         ui->tableWidget->clear();
+        ui->tableWidget->setRowCount(1);
         QSqlQuery query(db);
         query.prepare("select distinct LoaiLK from LinhKien");
         query.exec();
@@ -1243,6 +1274,7 @@ void MainWindow::CapNhatBangTK()
 void MainWindow::CapNhatBangLK()
 {
     ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(1);
     ui->tableWidget->scrollToTop();
     Seclect(ui->comboBox->currentText());
 
@@ -1334,7 +1366,9 @@ void MainWindow::on_pushButton_15_clicked()//Xuất kho
 
         QMessageBox::warning(this, "Thông báo", "Xuất kho thành công!");
         //        on_pushButton_21_clicked();
-        ui->tableWidget_2->clear();
+        ui->tableWidget_2->clearContents();
+        ui->tableWidget_2->setRowCount(0);   // Xóa các hàng trống
+
         SelectAll();
     }
 }
@@ -1351,6 +1385,7 @@ void MainWindow::on_pushButton_22_clicked() //làm mới lịch sử
     if(this->DatabaseConnected)
     {
         ui->tableWidget_3->clear();
+        ui->tableWidget_3->setRowCount(1);
 
         QSqlQuery query(db);
         query.prepare("select * from LSXuatKho");
@@ -1403,6 +1438,7 @@ void MainWindow::on_lineEdit_timnguoi_xk_editingFinished()  // tìm lịch sử 
     if(this->DatabaseConnected)
     {
         ui->tableWidget_3->clear();
+        ui->tableWidget_3->setRowCount(1);
 
         QSqlQuery query(db);
         query.prepare("select * from LSXuatKho where TenNguoiXK == '"+ui->lineEdit_timnguoi_xk->text() +"'");
@@ -1527,6 +1563,7 @@ void MainWindow::on_comboBox_editTextChanged(const QString &arg1)
 void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
 {
     ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(1);
     ui->tableWidget->scrollToTop();
     Seclect(arg1);
 
@@ -1538,8 +1575,6 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
     ui->lineEdit_timkiem->setCompleter(completer);
 
     ui->lineEdit_timkiem->clear();
-    //    ui->pushButton_ThemTrucTiep->setHidden(true);
-    //    ui->pushButton_nhapthemvaokho->setHidden(true);
 }
 
 void MainWindow::on_pushButton_7_clicked()  //QUẢN LÝ TÀI KHOẢN
@@ -1596,6 +1631,7 @@ void MainWindow::on_lineEdit_timlk_xuatkho_editingFinished()//tìm kiếm lịch
     if(this->DatabaseConnected)
     {
         ui->tableWidget_3->clear();
+        ui->tableWidget_3->setRowCount(1);
 
         QSqlQuery query(db);
         query.prepare("select * from LSXuatKho where TenLK == '"+ui->lineEdit_timlk_xuatkho->text() +"'");
@@ -1641,8 +1677,42 @@ void MainWindow::on_lineEdit_timlk_xuatkho_editingFinished()//tìm kiếm lịch
     }
 }
 
+QString MainWindow:: generateNewCode(const QString prefix) {
+    UpdateConnection();
+    QList<QString> result;
+    QSqlQuery query(db);
+    // Truy vấn mã lớn nhất với tiền tố prefix
+    QString queryStr = QString("SELECT MAX(MaLK) FROM LinhKien WHERE MaLK LIKE '%1%'").arg(prefix);
+    if (!query.exec(queryStr)) {
+        qDebug() << "Database query error:" << query.lastError().text();
+        return QString();
+    }
+
+    QString newCode;
+    if (query.next()) {
+        QString maxCode = query.value(0).toString();
+
+        if (!maxCode.isEmpty()) {
+            // Lấy phần số sau tiền tố và tăng lên 1
+            int currentNumber = maxCode.mid(prefix.length()).toInt();
+            int nextNumber = currentNumber + 1;
+
+            // Tạo mã mới với số thứ tự đã tăng
+            newCode = QString("%1%2").arg(prefix).arg(nextNumber, 3, 10, QChar('0'));
+        } else {
+            // Nếu không có mã nào với tiền tố này, bắt đầu với mã đầu tiên
+            newCode = QString("%1%2").arg(prefix).arg(1, 3, 10, QChar('0'));
+        }
+    }
+
+    return newCode;
+}
+
 void MainWindow::on_lineEdit_loaiLK_editingFinished()
 {
+
+    ui->lineEdit_MaLK->setText(generateNewCode(ui->lineEdit_loaiLK->text()) );
+    //-------------
     ui->lineEdit_TenLK->setFocus();
 }
 
@@ -1778,6 +1848,7 @@ void MainWindow::on_pushButton_xacnhapnhapthem_clicked()//Xác nhận nhập th�
 
     QMessageBox::warning(this, "Thông báo", "Nhập kho thành công!");
     ui->tableWidget_nhapthem->clear();
+    ui->tableWidget_nhapthem->setRowCount(1);
     SelectAll();
 }
 
@@ -1826,6 +1897,8 @@ void MainWindow::on_pushButton_huynhapthem_clicked()//hủy nhập thêm vào kh
 {
     QMessageBox::warning(this, "Thông báo", "Hủy nhập thêm linh kiện có sẵn vào kho!");
     ui->tableWidget_nhapthem->clear();
+    ui->tableWidget_nhapthem->setRowCount(1);
+
 }
 
 void MainWindow::on_pushButton_TK_canhanh_clicked()
@@ -1835,6 +1908,8 @@ void MainWindow::on_pushButton_TK_canhanh_clicked()
 
 void MainWindow::on_pushButton_lichsunhapkho_clicked()
 {
+
+    //------------
     this->wordList_nk = LoadTenNguoiNhapKho();
     QCompleter *completer_1 = new QCompleter(wordList_nk, ui->lineEdit_timnguoi_nhapkho);
     completer_1->setCaseSensitivity(Qt::CaseInsensitive);
@@ -1845,6 +1920,7 @@ void MainWindow::on_pushButton_lichsunhapkho_clicked()
     if(this->DatabaseConnected)
     {
         ui->tableWidget_lsnhapkho->clear();
+        ui->tableWidget_lsnhapkho->setRowCount(1);
 
         QSqlQuery query(db);
         query.prepare("select * from LSNhapKho");
@@ -1885,6 +1961,12 @@ void MainWindow::on_pushButton_lichsunhapkho_clicked()
         }
         this->db.close();
     }
+    ui->tableWidget_lsnhapkho->setColumnWidth(0, 300);
+    ui->tableWidget_lsnhapkho->setColumnWidth(1, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(2, 200);
+    ui->tableWidget_lsnhapkho->setColumnWidth(3, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(4, 150);
+    ui->tableWidget_lsnhapkho->setColumnWidth(5, 130);
 }
 
 void MainWindow::on_lineEdit_timnguoi_nhapkho_editingFinished()
@@ -1894,6 +1976,8 @@ void MainWindow::on_lineEdit_timnguoi_nhapkho_editingFinished()
     if(this->DatabaseConnected)
     {
         ui->tableWidget_lsnhapkho->clear();
+        ui->tableWidget_lsnhapkho->setRowCount(1);
+
 
         QSqlQuery query(db);
         query.prepare("select * from LSNhapKho where TenNguoiNK == '"+ui->lineEdit_timnguoi_nhapkho->text() +"'");
@@ -1934,15 +2018,25 @@ void MainWindow::on_lineEdit_timnguoi_nhapkho_editingFinished()
         }
         this->db.close();
     }
+    ui->tableWidget_lsnhapkho->setColumnWidth(0, 300);
+    ui->tableWidget_lsnhapkho->setColumnWidth(1, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(2, 200);
+    ui->tableWidget_lsnhapkho->setColumnWidth(3, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(4, 150);
+    ui->tableWidget_lsnhapkho->setColumnWidth(5, 130);
+
 }
 
 void MainWindow::on_lineEdit_timlk_nhapkho_editingFinished()
 {
+
     UpdateConnection();
 
     if(this->DatabaseConnected)
     {
         ui->tableWidget_lsnhapkho->clear();
+        ui->tableWidget_lsnhapkho->setRowCount(1);
+
 
         QSqlQuery query(db);
         query.prepare("select * from LSNhapKho where TenLK == '"+ui->lineEdit_timlk_nhapkho->text() +"'");
@@ -1983,6 +2077,13 @@ void MainWindow::on_lineEdit_timlk_nhapkho_editingFinished()
         }
         this->db.close();
     }
+    ui->tableWidget_lsnhapkho->setColumnWidth(0, 300);
+    ui->tableWidget_lsnhapkho->setColumnWidth(1, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(2, 200);
+    ui->tableWidget_lsnhapkho->setColumnWidth(3, 100);
+    ui->tableWidget_lsnhapkho->setColumnWidth(4, 150);
+    ui->tableWidget_lsnhapkho->setColumnWidth(5, 130);
+
 }
 
 void MainWindow::on_pushButton_xuatfile_lsnhapkho_clicked()

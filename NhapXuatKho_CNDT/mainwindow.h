@@ -45,7 +45,7 @@ public:
     QSqlDatabase db;
     bool DatabaseConnected;
 //        QString path_db = "D:\\PM_QLK\\DATABASE\\QLK_DATABASE";
-    QString path_db = "C:\\Users\\ngock\\OneDrive\\Documents\\GitHub\\NhapXuatKho_CNDT\\NhapXuatKho_CNDT\\DATABASE\\QLK_DATABASE";
+    QString path_db = "C:\\Users\\HuynhPhanNgocKhang\\Documents\\GitHub\\NhapXuatKho_CNDT\\NhapXuatKho_CNDT\\DATABASE\\QLK_DATABASE";
 
     QString ID_DoubleCLick;
 
@@ -65,6 +65,7 @@ public:
     void CapNhatDS_loaiLK();
     void CapNhatBangTK();
     void CapNhatBangLK();
+    QString generateNewCode(const QString prefix);
 
 private slots:
     void on_pushButton_2_clicked();
