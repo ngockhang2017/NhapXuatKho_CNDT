@@ -1847,8 +1847,8 @@ void MainWindow::on_pushButton_xacnhapnhapthem_clicked()//Xác nhận nhập th�
     CapNhatBangLK();
 
     QMessageBox::warning(this, "Thông báo", "Nhập kho thành công!");
-    ui->tableWidget_nhapthem->clear();
-    ui->tableWidget_nhapthem->setRowCount(1);
+    ui->tableWidget_nhapthem->clearContents();
+    ui->tableWidget_nhapthem->setRowCount(0);
     SelectAll();
 }
 
@@ -2107,4 +2107,64 @@ void MainWindow::on_pushButton_huythem_clicked()
         }
     }
     ui->lineEdit_loaiLK->setFocus();
+}
+
+void MainWindow::on_lineEdit_lonhon_bang_editingFinished()
+{
+       UpdateConnection();
+    int soLuong = ui->lineEdit_lonhon_bang->text().toInt();
+
+    if (!db.open()) {
+        QMessageBox::critical(this, "Lỗi", "Không thể kết nối đến cơ sở dữ liệu: " + db.lastError().text());
+        return;
+    }
+
+    // Thực hiện truy vấn
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM LinhKien WHERE SoLuongConLai <= :soLuong");
+    query.bindValue(":soLuong", soLuong);
+
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Lỗi", "Truy vấn thất bại: " + query.lastError().text());
+        db.close();
+        return;
+    }
+
+    // Xóa dữ liệu cũ trên tablewidget_TK
+    ui->tableWidget_TK->clear();
+    ui->tableWidget_TK->setRowCount(0);
+    ui->tableWidget_TK->setColumnCount(6); // Số cột phải khớp với số cột trong bảng LinhKien
+    QStringList headers = {"Tên LK", "Mã LK", "Đơn Vị", "Số Lượng Còn Lại", "Loại LK", "Ghi Chú"};
+    ui->tableWidget_TK->setHorizontalHeaderLabels(headers);
+
+    // Điền dữ liệu vào tablewidget_TK
+    int row = 0;
+    while (query.next()) {
+        ui->tableWidget_TK->insertRow(row);
+        ui->tableWidget_TK->setItem(row, 0, new QTableWidgetItem(query.value("TenLK").toString()));
+        ui->tableWidget_TK->setItem(row, 1, new QTableWidgetItem(query.value("MaLK").toString()));
+        ui->tableWidget_TK->setItem(row, 2, new QTableWidgetItem(query.value("DonVi").toString()));
+        ui->tableWidget_TK->setItem(row, 3, new QTableWidgetItem(query.value("SoLuongConLai").toString()));
+        ui->tableWidget_TK->setItem(row, 4, new QTableWidgetItem(query.value("LoaiLK").toString()));
+        ui->tableWidget_TK->setItem(row, 5, new QTableWidgetItem(query.value("GhiChu").toString()));
+        row++;
+    }
+
+    db.close();
+
+    ui->tableWidget_TK->setColumnWidth(0, 350);
+    ui->tableWidget_TK->setColumnWidth(1, 100);
+    ui->tableWidget_TK->setColumnWidth(2, 100);
+    ui->tableWidget_TK->setColumnWidth(3, 200);
+    ui->tableWidget_TK->setColumnWidth(4, 100);
+    ui->tableWidget_TK->setColumnWidth(5, 400);
+}
+
+void MainWindow::on_pushButton_xuatfile_dshientai_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(nullptr, "Export to Excel", "", "Excel Files (*.xls *.xlsx)");
+    if (!fileName.isEmpty()) {
+        exportToExcel(ui->tableWidget, fileName);
+        QMessageBox::information(nullptr, "Export to Excel", "Exported successfully!");
+    }
 }

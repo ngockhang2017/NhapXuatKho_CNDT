@@ -154,8 +154,6 @@ Makefile: ..\NhapXuatKho_CNDT\NhapXuatKho_CNDT.pro C:\Qt\Qt5.14.2\5.14.2\msvc201
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_multimediawidgets_private.pri \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_network.pri \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_network_private.pri \
-		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_networkauth.pri \
-		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_networkauth_private.pri \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_nfc.pri \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_nfc_private.pri \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_opengl.pri \
@@ -345,8 +343,6 @@ C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_multimediawidgets.pri:
 C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_multimediawidgets_private.pri:
 C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_network.pri:
 C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_network_private.pri:
-C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_networkauth.pri:
-C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_networkauth_private.pri:
 C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_nfc.pri:
 C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_nfc_private.pri:
 C:\Qt\Qt5.14.2\5.14.2\msvc2017\mkspecs\modules\qt_lib_opengl.pri:

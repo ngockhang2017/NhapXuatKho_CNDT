@@ -161,6 +161,10 @@ private slots:
 
     void on_pushButton_huythem_clicked();
 
+    void on_lineEdit_lonhon_bang_editingFinished();
+
+    void on_pushButton_xuatfile_dshientai_clicked();
+
 public slots:
     void onLoginSuccessful(const QString &role, const QString &user);
 
