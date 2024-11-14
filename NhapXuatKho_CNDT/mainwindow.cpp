@@ -2107,6 +2107,14 @@ void MainWindow::on_pushButton_huythem_clicked()
         }
     }
     ui->lineEdit_loaiLK->setFocus();
+
+    ui->pushButton_11->setDisabled(true); //lưu
+    ui->pushButton_12->setDisabled(false); //bắt đầu thêm
+    ui->pushButton_13->setDisabled(true); //xóa lk này
+    ui->pushButton_14->setDisabled(true);  //sửa lk này
+    ui->pushButton_17->setDisabled(true);//cập nhật
+    ui->pushButton_20->setDisabled(true); //hủy sửa
+    ui->pushButton_huythem->setDisabled(true); //hủy thêm
 }
 
 void MainWindow::on_lineEdit_lonhon_bang_editingFinished()

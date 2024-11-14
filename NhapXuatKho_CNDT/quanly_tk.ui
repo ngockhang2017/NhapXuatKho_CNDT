@@ -136,34 +136,10 @@
           </item>
           <item>
            <layout class="QGridLayout" name="gridLayout">
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_8">
+            <item row="5" column="0">
+             <widget class="QPushButton" name="pushButton_BatDauThem">
               <property name="text">
-               <string>Quyền truy cập:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_6">
-              <property name="text">
-               <string>Tên tài khoản:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="lineEdit_TenTK"/>
-            </item>
-            <item row="5" column="1">
-             <widget class="QPushButton" name="pushButton_Luu">
-              <property name="text">
-               <string>Lưu tài khoản mới</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_7">
-              <property name="text">
-               <string>Mật khẩu:</string>
+               <string>Bắt đầu cấp tài khoản mới</string>
               </property>
              </widget>
             </item>
@@ -174,29 +150,8 @@
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
-             <widget class="QPushButton" name="pushButton_XoaTK">
-              <property name="text">
-               <string>Xóa tài khoản này</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QPushButton" name="pushButton_BatDauThem">
-              <property name="text">
-               <string>Bắt đầu cấp tài khoản mới</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_9">
-              <property name="text">
-               <string>Lọc:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QComboBox" name="comboBox">
+            <item row="3" column="1">
+             <widget class="QComboBox" name="comboBox_QuyenTruyCap">
               <item>
                <property name="text">
                 <string>Admin</string>
@@ -212,11 +167,34 @@
                 <string>User</string>
                </property>
               </item>
-              <item>
-               <property name="text">
-                <string>-TẤT CẢ-</string>
-               </property>
-              </item>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>Lọc:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>Tên tài khoản:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QPushButton" name="pushButton_Luu">
+              <property name="text">
+               <string>Lưu tài khoản mới</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>Mật khẩu:</string>
+              </property>
              </widget>
             </item>
             <item row="2" column="1">
@@ -253,8 +231,22 @@
               </layout>
              </widget>
             </item>
-            <item row="3" column="1">
-             <widget class="QComboBox" name="comboBox_QuyenTruyCap">
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>Quyền truy cập:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QPushButton" name="pushButton_XoaTK">
+              <property name="text">
+               <string>Xóa tài khoản này</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="comboBox">
               <item>
                <property name="text">
                 <string>Admin</string>
@@ -270,6 +262,26 @@
                 <string>User</string>
                </property>
               </item>
+              <item>
+               <property name="text">
+                <string>-TẤT CẢ-</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_TenTK"/>
+            </item>
+            <item row="6" column="0" colspan="2">
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="text">
+               <string>*Lưu lý: Tên tài khoản là KHÔNG ĐỔI trừ khi cấp tài khoản mới.</string>
+              </property>
              </widget>
             </item>
            </layout>

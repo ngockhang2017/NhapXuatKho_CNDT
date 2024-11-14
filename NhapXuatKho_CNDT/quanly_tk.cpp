@@ -136,6 +136,7 @@ void QuanLy_TK::on_pushButton_BatDauThem_clicked()//Bắt đầu thêm tài kho�
     }
 
     ui->pushButton_Luu->setDisabled(false);
+    ui->lineEdit_TenTK->setDisabled(false);
 }
 
 void QuanLy_TK::on_lineEdit_MatKhau_textEdited(const QString &arg1)

@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\HuynhPhanNgocKhang\\Documents\\GitHub\\NhapXuatKho_CNDT\\NhapXuatKho_CNDT\\images-removebg-preview.ico"
+IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\HuynhPhanNgocKhang\\Documents\\GitHub\\NhapXuatKho_CNDT\\NhapXuatKho_CNDT\\new-house.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0
